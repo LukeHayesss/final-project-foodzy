@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import React from "react";
+import Pages from "../pages/Pages";
+import Category from "./Category";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
-  const [bacon, setBacon] = useState(null);
-
-  useEffect(() => {
-    fetch('/bacon')
-      .then(res => res.json())
-      .then(data => setBacon(data));
-  }, []);
-
-  return <div>{bacon ? bacon : `...where's my stuff?...`}</div>;
+const App = () => {
+  return (
+    <div className="App">
+      <BrowserRouter>
+      <Category />
+      <Pages />
+      </BrowserRouter>
+    </div>
+  )
 }
-
 export default App;
+
