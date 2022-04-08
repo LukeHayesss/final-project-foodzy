@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-// import {motion} from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import {motion} from 'framer-motion/dist/framer-motion';
 
 
 const Cuisine = () => {
@@ -17,18 +17,25 @@ const Cuisine = () => {
      setCuisine(recipes.results)
  }
 
-  useEffect(() => {
+useEffect(() => {
 getCuisine(params.type)
 // console.log(params.type)
   }, [params.type]);
 
     return (
-        <Grid>
+        <Grid
+        animate={{opacity: 1}}
+        initial={{opacity: 0}}
+        exit={{opacity: 0}}
+        transition={{duration: 0.5}}
+        >
             {cuisine.map((item) => {
                 return (
                     <Card key={item.id}>
+                        <Link to={'/recipe/' + item.id}>
                         <img src={item.image} alt=""/>
                         <h4>{item.title}</h4>
+                        </Link>
                     </Card>
                 )
                 })}
@@ -37,7 +44,7 @@ getCuisine(params.type)
 
 
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 grid-gap: 3rem;
@@ -54,6 +61,7 @@ a {
 h4 {
     text-align: center;
     padding: 1rem;
+    color: black;
 }
 `
 
