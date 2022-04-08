@@ -8,21 +8,37 @@ import {NavLink} from "react-router-dom";
 const Category = () => {
     return (
         <List>
-            <SLink to={'/cuisine/italian'}>
+            <SLink to={'/cuisine/glutenfree'}>
               <FaPizzaSlice/>
-              <h4>Italian</h4>
+              <h4>Gluten Free</h4>
             </SLink>
-            <SLink to={'/cuisine/american'}>
+            <SLink to={'/cuisine/ketogenic'}>
               <FaHamburger/>
-              <h4>American</h4>
+              <h4>Ketogenic</h4>
             </SLink>
-            <SLink to={'/cuisine/thai'}>
+            <SLink to={'/cuisine/vegetarian'}>
               <GiNoodles/>
-              <h4>Thai</h4>
+              <h4>Vegetarian</h4>
             </SLink>
-            <SLink to={'/cuisine/japanese'} >
+            <SLink to={'/cuisine/vegan'} >
               <GiChopsticks/>
-              <h4>Japanese</h4>
+              <h4>Vegan</h4>
+            </SLink>
+            <SLink to={'/cuisine/pescatarian'} >
+              <GiChopsticks/>
+              <h4>Pescatarian</h4>
+            </SLink>
+            <SLink to={'/cuisine/paleo'} >
+              <GiChopsticks/>
+              <h4>Paleo</h4>
+            </SLink>
+            <SLink to={'/cuisine/lowfodmap'} >
+              <GiChopsticks/>
+              <h4>Low FODMAP</h4>
+            </SLink>
+            <SLink to={'/cuisine/whole30'} >
+              <GiChopsticks/>
+              <h4>Whole30</h4>
             </SLink>
         </List>
     )
@@ -42,19 +58,19 @@ border-radius: 50%;
 margin-right: 2rem;
 text-decoration: none;
 background: linear-gradient(35deg, #494949, #313131);
-width: 6rem;
-height: 6rem;
+width: 8rem;
+height: 8rem;
 cursor: pointer;
 transform: scale(0.8);
 
 h4 {
     color: white;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-top: 5px;
 }
 svg {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2.8rem;
 }
 &.active {
     background: linear-gradient(to right, #f27121, #e94057);

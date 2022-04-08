@@ -66,6 +66,7 @@ display: flex;
 }
 h2 {
     margin-bottom: 2rem;
+    font-size: 2rem;
 } 
 li {
     font-size: 1.2rem;

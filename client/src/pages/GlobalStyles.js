@@ -32,6 +32,13 @@ h4 {
     color: gray;
 
 }
+
+h3 {
+    font-size: 2rem;
+    /* color: rgb(56, 56, 56) */
+    line-height: 2.5rem;
+    margin: 1rem 0rem;
+}
 `
 
 export default GlobalStyles;
