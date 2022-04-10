@@ -1,9 +1,10 @@
 .register {
-    height: 100vh;
+    height: 60vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
   }
   .register__container {
     display: flex;

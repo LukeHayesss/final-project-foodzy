@@ -22,6 +22,7 @@ const Search = () => {
     <input onChange={(e) => setInput(e.target.value)} 
     type="text" 
     value={input}
+    placeholder="search!"
     />
     </div>
 </FormStyle>
@@ -32,11 +33,13 @@ const FormStyle = styled.form`
 margin: 0rem 20rem;
 
 div {
-    width: 100%;
+    display: flex;
+    /* width: 50%; */
     position: relative;
+    left: 275px;
+    bottom: 25px;
 }
 input {
-
     border: none;
     background: linear-gradient(35deg, #494949, #313131);
     font-size: 1.5rem;
@@ -45,8 +48,8 @@ input {
     border: none;
     border-radius: 1rem;
     outline: none;
-    width: 100%;
-
+    width: 60%;
+    /* margin-left: 550px; */
 }
 svg {
     position: absolute;
@@ -54,6 +57,7 @@ svg {
     left: 0%;
     transform: translate(100%, -50%);
     color: white;
+    /* margin-left: 550px; */
 }
 `
 

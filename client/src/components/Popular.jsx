@@ -62,7 +62,11 @@ const Popular = () => {
 }
 
 const Wrapper = styled.div`
-margin: 4rem 0rem;
+/* margin: 4rem 0rem; */
+margin: 0% 8%;
+margin-bottom: 50px;
+
+
 `
 const Card = styled.div`
 min-height: 15rem;

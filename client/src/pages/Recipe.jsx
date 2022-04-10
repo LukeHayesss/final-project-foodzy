@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
+
 const Recipe = () => {
 
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
+
+    //update the text on favorites button//
+    const [buttonText, setButtonText] = useState("Add To Favorites");
+    const changeText = (text) => setButtonText(text);
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -26,6 +31,11 @@ const Recipe = () => {
             <div>
                 <h2>{details.title}</h2>
                 <img src={details.image} />
+
+
+                 
+                <Button2 onClick={() => changeText("Added To Favorites")}>{buttonText}</Button2>
+
             </div>
             <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} 
@@ -58,7 +68,10 @@ const Recipe = () => {
 
 const DetailWrapper = styled.div`
 margin-top: 10rem;
+margin: 0% 8%;
 margin-bottom: 5rem;
+
+
 display: flex;
 .active {
     background: linear-gradient(35deg, #494949, #313131);
@@ -75,6 +88,9 @@ li {
 ul {
     margin-top: 2rem;
 }
+h3 {
+    font-size: 1rem;
+}
 `
 
 const Button = styled.button`
@@ -84,10 +100,22 @@ background: white;
 border: 2px solid black;
 margin-right: 2rem;
 font-weight: 600;
+cursor: pointer;
 `
 
+const Button2 = styled.button`
+padding: 1rem 2rem;
+color: white;
+background: #313131;
+border: 2px solid black;
+margin-right: 2rem;
+font-weight: 600;
+cursor: pointer;
+`
+
+
 const Info = styled.div`
-margin-left: 10rem;
+margin-left: 3.5rem;
 `
 
 export default Recipe;

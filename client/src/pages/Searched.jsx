@@ -13,7 +13,7 @@ const Searched = () => {
 
     const getSearched = async (name) => {
         const data = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`)
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
         const recipes = await data.json();
         setSearchedRecipes(recipes.results)
     };
@@ -23,6 +23,7 @@ const Searched = () => {
     }, [params.search]);
 
     return (
+        <Wrapper>
         <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
@@ -40,8 +41,13 @@ const Searched = () => {
             )
         })}
         </Grid>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+margin: 0% 8%;
+`
 
 const Grid = styled(motion.div)`
 display: grid;

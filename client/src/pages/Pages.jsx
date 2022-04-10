@@ -5,10 +5,12 @@ import Searched from "./Searched";
 import Recipe from "./Recipe";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion/dist/framer-motion";
-import Login from "../components/Login";
-import Reset from "../components/Reset";
-import Register from "../components/Register";
-import Dashboard from "../components/Dashboard";
+import Login from "../components/Firebase/Login"
+import Reset from "../components/Firebase/Reset";
+import Register from "../components/Firebase/Register";
+import Dashboard from "../components/Firebase/Dashboard";
+import Health from "./Health";
+import Favorites from "./Favorites";
 
 
 const Pages = () => {
@@ -16,7 +18,7 @@ const Pages = () => {
 
     return (
         <AnimatePresence exitBeforeEnter>
-     <Routes location={location} key={location.pathname}>
+        <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
 
         <Route path='/login' element={<Login />} />
@@ -25,6 +27,11 @@ const Pages = () => {
         <Route exact path="/dashboard" element={<Dashboard />} />
 
         <Route path='/cuisine/:type' element={<Cuisine />} />
+        <Route path='/favorites' element={<Favorites />} />
+
+        {/* <Route path='/cuisine/:type' element={<Health />} /> */}
+
+
         <Route path='/searched/:search' element={<Searched />} />
         <Route path='/recipe/:name' element={<Recipe />} />
      </Routes>

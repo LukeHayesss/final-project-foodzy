@@ -23,6 +23,7 @@ getCuisine(params.type)
   }, [params.type]);
 
     return (
+        <Wrapper>
         <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
@@ -40,8 +41,13 @@ getCuisine(params.type)
                 )
                 })}
         </Grid>
+        </Wrapper>
     )}
 
+
+const Wrapper = styled.div`
+margin: 0% 8%;
+`
 
 
 const Grid = styled(motion.div)`
