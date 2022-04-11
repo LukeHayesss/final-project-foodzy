@@ -4,9 +4,12 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion/dist/framer-motion';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const Searched = () => {
+
+    const [ isLoaded, setIsLoaded ] = useState(false);
 
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     let params = useParams();
@@ -15,14 +18,26 @@ const Searched = () => {
         const data = await fetch(
             `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
         const recipes = await data.json();
-        setSearchedRecipes(recipes.results)
+        setSearchedRecipes(recipes.results);
+        setIsLoaded(true);
     };
 
     useEffect(() => {
     getSearched(params.search);
+    
+
     }, [params.search]);
 
     return (
+        <>
+
+        {(!isLoaded &&
+     <LoadingIconWrapper>
+     <CircularProgress />
+       </LoadingIconWrapper>)}
+       {(isLoaded && 
+       <div>
+   
         <Wrapper>
         <Grid
         animate={{opacity: 1}}
@@ -42,6 +57,8 @@ const Searched = () => {
         })}
         </Grid>
         </Wrapper>
+        </div>)}
+        </>
     )
 }
 
@@ -68,6 +85,13 @@ h4 {
     padding: 1rem;
     color: black;
 }
+`
+const LoadingIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+  padding-bottom: 500px;
 `
 
 export default Searched;

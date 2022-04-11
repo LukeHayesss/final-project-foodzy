@@ -97,7 +97,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    &:hover {
+    color: white;
+    text-decoration: none;
+}}
 `
 
 const Gradient = styled.div`

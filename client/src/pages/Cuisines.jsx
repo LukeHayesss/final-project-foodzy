@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import {motion} from 'framer-motion/dist/framer-motion';
-import RecipePreview from "../components/RecipePreview";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const Cuisine = () => {
-
+    const [ isLoaded, setIsLoaded ] = useState(false);
     const [cuisine, setCuisine] = useState([]);
     let params = useParams();
 
@@ -15,7 +15,9 @@ const Cuisine = () => {
      const data = await fetch(
          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
      const recipes = await data.json();
-     setCuisine(recipes.results)
+     setCuisine(recipes.results);
+     setIsLoaded(true);
+
  }
 
 useEffect(() => {
@@ -24,8 +26,16 @@ getCuisine(params.type)
   }, [params.type]);
 
     return (
+        <>
+
+        {(!isLoaded &&
+     <LoadingIconWrapper>
+     <CircularProgress />
+       </LoadingIconWrapper>)}
+       {(isLoaded && 
+       <div>
+
         <Wrapper>
-            {/* <RecipePreview /> */}
         <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
@@ -50,6 +60,8 @@ getCuisine(params.type)
                 })}
         </Grid>
         </Wrapper>
+        </div>)}
+        </>
     )}
 
 
@@ -78,6 +90,14 @@ h4 {
     color: black;
     font-size: 1.5rem;
 }
+`
+
+const LoadingIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+  padding-bottom: 500px;
 `
 
 export default Cuisine;

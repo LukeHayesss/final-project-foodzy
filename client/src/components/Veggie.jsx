@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 const Veggie = () => {
     const [veggie, setVeggie] = useState([]);
+    const [ isLoaded, setIsLoaded ] = useState(false);
+
 
     useEffect(() => {
     getVeggie();
@@ -26,10 +30,21 @@ const Veggie = () => {
              // console.log(data);
              localStorage.setItem('veggie', JSON.stringify(data.recipes));
              setVeggie(data.recipes);
+             
+
         }
+        setIsLoaded(true);
     };
 
     return (
+        <>
+        
+        {(!isLoaded &&
+     <LoadingIconWrapper>
+     <CircularProgress />
+       </LoadingIconWrapper>)}
+       {(isLoaded && 
+       <div>
 <div>
 <Wrapper>
     <h3>Veggie Picks</h3>
@@ -58,6 +73,8 @@ const Veggie = () => {
 </Splide>
 </Wrapper>
 </div>
+</div>
+       )}</>
 )
 }
 
@@ -96,6 +113,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
 `
 
@@ -106,5 +127,13 @@ width: 100%;
 height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `
+
+const LoadingIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+`
+
 
 export default Veggie;

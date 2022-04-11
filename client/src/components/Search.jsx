@@ -16,6 +16,7 @@ const Search = () => {
     
 
     return (
+        
 <FormStyle onSubmit={submitHandler}>
     <div>
         <FaSearch></FaSearch>
