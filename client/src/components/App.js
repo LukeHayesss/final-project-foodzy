@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Pages from "../pages/Pages";
 import Category from "./Category";
 import { BrowserRouter } from "react-router-dom";
@@ -9,10 +9,14 @@ import { GiKnifeFork } from 'react-icons/gi';
 import GlobalStyles from "../pages/GlobalStyles";
 import { NavLink } from "react-router-dom";
 import Footer from '../pages/Footer';
+import { LoginContext } from "../context/LoginContext";
+import '../styles/App.min.css';
 
 const App = () => {
+  const { isLoggedin, signOut } = useContext(LoginContext);
+
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
       <GlobalStyles />
 
@@ -21,35 +25,37 @@ const App = () => {
         <GiKnifeFork />
         <Logo to={'/'}>Yummyyy</Logo>
       </NavMenu>
-{/* <Dashboard /> */}
+
       <Navigation>
 
-      <StyledNavLink exact to="/">
+      <StyledNavLink exact to="/about">
             About
           </StyledNavLink>
 
-        <StyledNavLink exact to="/login">
-            Login
+          <StyledNavLink exact to="/myrecipes">
+            My Recipes
           </StyledNavLink>
 
           <StyledNavLink exact to="/register">
             Sign Up
           </StyledNavLink>
 
-          <StyledNavLink exact to="/dashboard">
-            My Account
-          </StyledNavLink>
-
-          <StyledNavLink exact to="/favorites">
-            Favorites
-          </StyledNavLink>
+          {isLoggedin ? (
+        <p className="login_button" onClick={signOut}>
+          Logout
+        </p>
+      ) : (
+        <StyledNavLink to="/login" className="login_button">
+          Login
+        </StyledNavLink>
+      )}
 
           <Search />
 
        </Navigation>
       
       </Wrapper>
-        {/* <Search /> */}
+
         <Category />
         <Pages />
         <Footer />
@@ -93,6 +99,7 @@ const StyledNavLink = styled(NavLink)`
     color: black;
     text-decoration: underline;
   }
+
 `;
 
 const Navigation = styled.ul`

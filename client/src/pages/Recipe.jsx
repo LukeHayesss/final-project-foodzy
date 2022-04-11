@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import ToggleBookmark from "../components/ToggleBookmark";
 
 
 const Recipe = () => {
@@ -9,10 +10,6 @@ const Recipe = () => {
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
-
-    //update the text on favorites button//
-    const [buttonText, setButtonText] = useState("Add To Favorites");
-    const changeText = (text) => setButtonText(text);
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -32,9 +29,8 @@ const Recipe = () => {
                 <h2>{details.title}</h2>
                 <img src={details.image} />
 
-
+                <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
                  
-                <Button2 onClick={() => changeText("Added To Favorites")}>{buttonText}</Button2>
 
             </div>
             <Info>
@@ -45,10 +41,10 @@ const Recipe = () => {
                 <Button className={activeTab === 'ingredients' ? 'active' : ''} 
                 onClick={() => setActiveTab('ingredients')}>Ingredients
                 </Button>
-
+                
                 {activeTab === 'instructions' && (
             <div>
-                <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+                {/* <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3> */}
                 <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
             </div>
                 )}

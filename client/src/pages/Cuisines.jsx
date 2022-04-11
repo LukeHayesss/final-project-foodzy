@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import {motion} from 'framer-motion/dist/framer-motion';
+import RecipePreview from "../components/RecipePreview";
 
 
 const Cuisine = () => {
@@ -24,6 +25,7 @@ getCuisine(params.type)
 
     return (
         <Wrapper>
+            {/* <RecipePreview /> */}
         <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
@@ -36,6 +38,12 @@ getCuisine(params.type)
                         <Link to={'/recipe/' + item.id}>
                         <img src={item.image} alt=""/>
                         <h4>{item.title}</h4>
+                        {/* <RecipePreview
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        image={item.image}/> */}
+
                         </Link>
                     </Card>
                 )

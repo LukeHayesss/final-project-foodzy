@@ -41,6 +41,17 @@ h3 {
     line-height: 2rem;
     margin: 1rem 0rem;
 }
+
+p {
+    font-size: 1.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    &:hover {
+    color: black;
+    text-decoration: underline;
+  }
+}
 `
 
 export default GlobalStyles;
