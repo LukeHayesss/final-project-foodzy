@@ -18,10 +18,8 @@ import './Dropdown/Navbar.css';
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
-
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
   const handleClick = () => setClick(!click);
 
   const onMouseEnter = () => {

@@ -22,16 +22,16 @@ const Footer = () => {
           
           <Icons>
             <IconLink href="/" target="_blank">
-                <FaFacebook />
+                <FaFacebook size={30}/>
               </IconLink>
               <IconLink href="/">
-                <FaInstagram />
+                <FaInstagram size={30}/>
               </IconLink>
               <IconLink href="/" target="_blank">
-                <FaTwitter />
+                <FaTwitter size={30}/>
               </IconLink>
               <IconLink href="/" target="_blank">
-                <FaYoutube />
+                <FaYoutube size={30}/>
               </IconLink>
           </Icons>
         </CompanyInfoContainer>
@@ -130,8 +130,7 @@ const Icons = styled.div`
 
 const IconLink = styled.div`
   color: black;
-  font-size: 24px;
-  transition: 0.8s ease-out;
+  padding-right: 35px;
   &:hover {
     color: gray;
     cursor: pointer;

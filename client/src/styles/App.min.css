@@ -125,7 +125,7 @@ box-sizing:border-box}
     
 .login,.register{width:clamp(200px, 80%, 400px);
     margin:auto;
-    height:50vh;
+    height:80vh;
     display:flex;
     justify-content:center;
     align-items:center;

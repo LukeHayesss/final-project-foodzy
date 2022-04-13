@@ -3,19 +3,24 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import ToggleBookmark from "../components/ToggleBookmark";
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 const Recipe = () => {
-
+    const [ isLoaded, setIsLoaded ] = useState(false);
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
+
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
         const detailData = await data.json();
         setDetails(detailData);
-        console.log(detailData)
+        console.log(detailData);
+        setIsLoaded(true);
+
     };
 
     useEffect(() => {
@@ -24,6 +29,16 @@ const Recipe = () => {
 
 
     return (
+
+        <>
+
+        {(!isLoaded &&
+     <LoadingIconWrapper>
+     <CircularProgress />
+       </LoadingIconWrapper>)}
+       {(isLoaded && 
+       <div>
+
         <DetailWrapper>
             <div>
                 <h2>{details.title}</h2>
@@ -60,6 +75,8 @@ const Recipe = () => {
 
             </Info>
             </DetailWrapper>
+            </div>)}
+        </>
     )
 }
 
@@ -73,8 +90,7 @@ const DetailWrapper = styled.div`
 margin-top: 10rem;
 margin: 0% 8%;
 margin-bottom: 5rem;
-
-
+padding-top: 50px;
 display: flex;
 .active {
     background: linear-gradient(35deg, #494949, #313131);
@@ -93,6 +109,11 @@ ul {
 }
 h3 {
     font-size: 1rem;
+}
+p {
+    font-size: 12px;
+    text-decoration: none;
+    cursor: default;
 }
 `
 
@@ -119,6 +140,14 @@ cursor: pointer;
 
 const Info = styled.div`
 margin-left: 3.5rem;
+`
+
+const LoadingIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+  padding-bottom: 500px;
 `
 
 export default Recipe;
