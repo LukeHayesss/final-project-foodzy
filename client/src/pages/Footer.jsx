@@ -132,7 +132,7 @@ const IconLink = styled.div`
   color: black;
   padding-right: 35px;
   &:hover {
-    color: gray;
+    color: white;
     cursor: pointer;
   }
 `;

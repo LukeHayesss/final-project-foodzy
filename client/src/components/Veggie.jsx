@@ -74,7 +74,8 @@ const Veggie = () => {
 </Wrapper>
 </div>
 </div>
-       )}</>
+)}
+</>
 )
 }
 

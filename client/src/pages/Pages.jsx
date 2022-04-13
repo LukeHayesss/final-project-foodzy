@@ -12,9 +12,10 @@ import Register from "../components/Register";
 import { LoginContext } from "../context/LoginContext";
 import MyRecipes from "./MyRecipes";
 import About from "./About";
-// import HealthRecipe from "./HealthRecipe";
-// import MyRecipes from "./MyRecipes";
 
+import Diabetes from "./HealthCategories/Diabetes";
+import HighBp from "./HealthCategories/HighBp";
+import Hearty from "./HealthCategories/Heart";
 
 
 const Pages = () => {
@@ -34,8 +35,11 @@ const Pages = () => {
         <Route path='/searched/:search' element={<Searched />} />
         <Route path='/recipe/:name' element={<Recipe />} />
 
-        {/* <Route path='/health-recipe/:id' element={<HealthRecipe/>}/> */}
-        
+        <Route path='/heart' element={<Hearty/>}/>
+        <Route path='/diabetes' element={<Diabetes/>}/>
+        <Route path='/highbp' element={<HighBp/>}/>
+
+
       </Routes>
     </AnimatePresence>
     )
