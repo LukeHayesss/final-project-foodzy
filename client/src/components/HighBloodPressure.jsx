@@ -4,34 +4,25 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
 
-const Popular = () => {
-   const [popular, setPopular] = useState([]);
+const HighBloodPressure = () => {
+   const [highBloodPressure, setHighBloodPressure] = useState([]);
 
     useEffect(() => {
-    getPopular();
+    getHighBloodPressure();
     }, []);
 
-    const getPopular = async () => {
-
-        //don't refresh the recipes each time we go back to home//
-        const check = localStorage.getItem('popular');
-        if(check) {
-            setPopular(JSON.parse(check));
-        } else {
-            const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=50`
-            );
-             const data = await api.json();
-             // console.log(data);
-             localStorage.setItem('popular', JSON.stringify(data.recipes));
-             setPopular(data.recipes);
-        }
+    const getHighBloodPressure = async () => {
+            const data = await fetch(
+            `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&type=bread&type=sauce&apiKey=${process.env.REACT_APP_API_KEY}&number=80&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&minPotassium=20`);
+             const recipes = await data.json();
+             console.log(data);
+             setHighBloodPressure(recipes.results);
     };
 
     return(
     <div>
-<Wrapper>
-    <h3>Popular Recipes</h3>
+    <Wrapper>
+    <h3>High Blood Pressure Recipes</h3>
 
     <Splide options={{
         perPage: 4,
@@ -41,7 +32,7 @@ const Popular = () => {
         gap: '3rem',
     }}>
 
-    {popular.map((recipe) => {
+    {highBloodPressure?.map((recipe) => {
     return(
         <SplideSlide key={recipe.id}>
          <Card>
@@ -110,4 +101,4 @@ height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `
 
-export default Popular;
+export default HighBloodPressure;

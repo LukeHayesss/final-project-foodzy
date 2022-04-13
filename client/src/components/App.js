@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Pages from "../pages/Pages";
 import Category from "./Category";
 import { BrowserRouter } from "react-router-dom";
@@ -11,9 +11,35 @@ import { NavLink } from "react-router-dom";
 import Footer from '../pages/Footer';
 import { LoginContext } from "../context/LoginContext";
 import '../styles/App.min.css';
+import { FaAngleDown } from "react-icons/fa";
+import Dropdown from "./Dropdown/Dropdown";
+import './Dropdown/Navbar.css';
+
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
+
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
 
   return (
     <div className="app">
@@ -31,6 +57,23 @@ const App = () => {
       <StyledNavLink exact to="/about">
             About
           </StyledNavLink>
+
+
+          <li
+            className='nav-item'
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            <StyledNavLink
+              to='/'
+              className='nav-links'
+            >
+              Diets <FaAngleDown />
+            </StyledNavLink>
+            {dropdown && <Dropdown />}
+          </li>
+
+
 
           <StyledNavLink exact to="/myrecipes">
             My Recipes
@@ -56,7 +99,7 @@ const App = () => {
       
       </Wrapper>
 
-        <Category />
+        {/* <Category /> */}
         <Pages />
         <Footer />
       </BrowserRouter>

@@ -4,34 +4,28 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
 
-const Popular = () => {
-   const [popular, setPopular] = useState([]);
+const Heart = () => {
+   const [heart, setHeart] = useState([]);
 
     useEffect(() => {
-    getPopular();
+    getHeart();
     }, []);
 
-    const getPopular = async () => {
-
-        //don't refresh the recipes each time we go back to home//
-        const check = localStorage.getItem('popular');
-        if(check) {
-            setPopular(JSON.parse(check));
-        } else {
-            const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=50`
-            );
-             const data = await api.json();
-             // console.log(data);
-             localStorage.setItem('popular', JSON.stringify(data.recipes));
-             setPopular(data.recipes);
-        }
+    const getHeart = async () => {
+            const data = await fetch(
+            // `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50`);
+            
+            `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&maxSodium=50`);
+            
+             const recipes = await data.json();
+             console.log(data);
+             setHeart(recipes.results);
     };
 
     return(
     <div>
-<Wrapper>
-    <h3>Popular Recipes</h3>
+    <Wrapper>
+    <h3>Heart Recipes</h3>
 
     <Splide options={{
         perPage: 4,
@@ -41,7 +35,7 @@ const Popular = () => {
         gap: '3rem',
     }}>
 
-    {popular.map((recipe) => {
+    {heart?.map((recipe) => {
     return(
         <SplideSlide key={recipe.id}>
          <Card>
@@ -110,4 +104,4 @@ height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `
 
-export default Popular;
+export default Heart;

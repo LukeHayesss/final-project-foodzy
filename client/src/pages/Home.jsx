@@ -2,6 +2,9 @@ import React from "react";
 import Popular from "../components/Popular";
 import Veggie from "../components/Veggie";
 import {motion} from 'framer-motion/dist/framer-motion';
+import Diabetic from '../components/Diabetic';
+import Heart from '../components/Heart';
+import HighBloodPressure from "../components/HighBloodPressure";
 
 const Home = () => {
     return (
@@ -13,6 +16,9 @@ const Home = () => {
         >
             <Veggie />
             <Popular />
+            <Diabetic />
+            <Heart />
+            <HighBloodPressure />
         </motion.div>
     )
 };

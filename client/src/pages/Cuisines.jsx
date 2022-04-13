@@ -48,12 +48,6 @@ getCuisine(params.type)
                         <Link to={'/recipe/' + item.id}>
                         <img src={item.image} alt=""/>
                         <h4>{item.title}</h4>
-                        {/* <RecipePreview
-                        key={item.id}
-                        id={item.id}
-                        title={item.title}
-                        image={item.image}/> */}
-
                         </Link>
                     </Card>
                 )

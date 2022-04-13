@@ -40,11 +40,6 @@ const Category = () => {
               <GiChopsticks/>
               <h4>Whole30</h4>
             </SLink>
-
-            {/* <SLink to={'/cuisine/maxSugar'} >
-              <GiChopsticks/>
-              <h4>Diabetic</h4>
-            </SLink> */}
         </List>
     )
 }

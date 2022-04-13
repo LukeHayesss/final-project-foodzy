@@ -29,8 +29,9 @@ const Recipe = () => {
                 <h2>{details.title}</h2>
                 <img src={details.image} />
 
+                <MiniWrap>
                 <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
-                 
+                </MiniWrap>
 
             </div>
             <Info>
@@ -61,6 +62,12 @@ const Recipe = () => {
             </DetailWrapper>
     )
 }
+
+const MiniWrap = styled.div`
+display: flex;
+width: 200px;
+align-items: center;
+`
 
 const DetailWrapper = styled.div`
 margin-top: 10rem;
