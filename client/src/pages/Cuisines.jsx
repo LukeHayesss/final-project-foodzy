@@ -13,11 +13,10 @@ const Cuisine = () => {
 
  const getCuisine = async (name) => {
      const data = await fetch(
-         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
+     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
      const recipes = await data.json();
      setCuisine(recipes.results);
      setIsLoaded(true);
-
  }
 
 useEffect(() => {
@@ -27,7 +26,6 @@ getCuisine(params.type)
 
     return (
         <>
-
         {(!isLoaded &&
      <LoadingIconWrapper>
      <CircularProgress />

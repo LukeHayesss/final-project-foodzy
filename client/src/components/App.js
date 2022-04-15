@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Pages from "../pages/Pages";
-import Category from "./Category";
+//import Category from "./Category";//
 import { BrowserRouter } from "react-router-dom";
 import Search from "./Search";
 import styled from "styled-components";
@@ -22,6 +22,8 @@ const App = () => {
   const [dropdown, setDropdown] = useState(false);
   const handleClick = () => setClick(!click);
 
+
+  //tried to do mobile but no time//
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
@@ -53,8 +55,8 @@ const App = () => {
       <Navigation>
 
       <StyledNavLink exact to="/about">
-            About
-          </StyledNavLink>
+          About
+      </StyledNavLink>
 
 
           <li
@@ -70,8 +72,6 @@ const App = () => {
             </StyledNavLink>
             {dropdown && <Dropdown />}
           </li>
-
-
 
           <StyledNavLink exact to="/myrecipes">
             My Recipes
@@ -92,11 +92,8 @@ const App = () => {
       )}
 
           <Search />
-
-       </Navigation>
-      
-      </Wrapper>
-
+          </Navigation>
+         </Wrapper>
         {/* <Category /> */}
         <Pages />
         <Footer />
@@ -128,7 +125,6 @@ svg {
   color: black;
 }
 `
-
 
 const StyledNavLink = styled(NavLink)`
   cursor: pointer;

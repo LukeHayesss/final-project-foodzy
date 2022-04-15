@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";//
 import { NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
-  const handleClickScroll = () => {
-    window.scrollTo(0,0)
-  };
+  // const handleClickScroll = () => {
+  //   window.scrollTo(0,0)
+  // };
 
   return (
 

@@ -42,7 +42,7 @@ const Recipe = () => {
         <DetailWrapper>
             <div>
                 <h2>{details.title}</h2>
-                <img src={details.image} />
+                <img src={details.image} alt={''}/>
 
                 <MiniWrap>
                 <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
@@ -126,17 +126,6 @@ margin-right: 2rem;
 font-weight: 600;
 cursor: pointer;
 `
-
-const Button2 = styled.button`
-padding: 1rem 2rem;
-color: white;
-background: #313131;
-border: 2px solid black;
-margin-right: 2rem;
-font-weight: 600;
-cursor: pointer;
-`
-
 
 const Info = styled.div`
 margin-left: 3.5rem;

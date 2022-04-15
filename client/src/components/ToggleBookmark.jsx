@@ -2,22 +2,26 @@ import React, { useState, useContext, useEffect } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { Link } from "react-router-dom";
 
+
 const ToggleBookmark = ({ id, title, image }) => {
 
   console.log("toggle")
 
   const {
-    myBookmarkedRecipies,
+    myBookmarkedRecipes,
     setMyBookmarkedRecipes,
     isLoggedin,
     sendUserData
   } = useContext(LoginContext);
   const [selected, toggleSelected] = useState(false);
 
+  console.log(myBookmarkedRecipes, " HELLO ")
+
+////////////////////////working again
   const toggleBookmark = () => {
-    if (myBookmarkedRecipies.find(inv => inv.id === id)) {
+    if (myBookmarkedRecipes.find(inv => inv.id === id)) {
       setMyBookmarkedRecipes(
-        myBookmarkedRecipies.filter(item => item.id !== id)
+        myBookmarkedRecipes.filter(item => item.id !== id)
       );
 
       toggleSelected(false);
@@ -34,12 +38,14 @@ const ToggleBookmark = ({ id, title, image }) => {
   };
 
   useEffect(() => {
-    if (myBookmarkedRecipies.find(inv => inv.id === id)) {
+    if (myBookmarkedRecipes.find(inv => inv.id === id)) {
       toggleSelected(true);
     } else {
       toggleSelected(false);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+//////////////////////////working again
 
   if (isLoggedin) {
     return (

@@ -5,14 +5,12 @@ import Searched from "./Searched";
 import Recipe from "./Recipe";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion/dist/framer-motion";
-
 import Login from "../components/Login";
 import LoginPage from "./LoginPage";
 import Register from "../components/Register";
 import { LoginContext } from "../context/LoginContext";
 import MyRecipes from "./MyRecipes";
 import About from "./About";
-
 import Diabetes from "./HealthCategories/Diabetes";
 import HighBp from "./HealthCategories/HighBp";
 import Hearty from "./HealthCategories/Heart";
@@ -34,12 +32,9 @@ const Pages = () => {
         <Route path="/login" element={!isLoggedin ? <LoginPage /> : <Navigate to="/" />}/>
         <Route path='/searched/:search' element={<Searched />} />
         <Route path='/recipe/:name' element={<Recipe />} />
-
         <Route path='/heart' element={<Hearty/>}/>
         <Route path='/diabetes' element={<Diabetes/>}/>
         <Route path='/highbp' element={<HighBp/>}/>
-
-
       </Routes>
     </AnimatePresence>
     )

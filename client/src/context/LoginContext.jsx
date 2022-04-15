@@ -16,8 +16,9 @@ const LoginContextProvider = props => {
   const [regpassword2, setRegpassword2] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [myBookmarkedRecipies, setMyBookmarkedRecipes] = useState([]);
+  const [myBookmarkedRecipes, setMyBookmarkedRecipes] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+
   //register user with email, name, psw to firebase and login
   const sendRegistration = e => {
     e.preventDefault();
@@ -65,6 +66,7 @@ const LoginContextProvider = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const setUser = user => {
+    console.log(user, ' FUCK YOU ')
     setIsLoggedIn(true);
     //get name of user, and save it
     setName(user.displayName);
@@ -93,29 +95,42 @@ const LoginContextProvider = props => {
       db.collection("users")
         .doc(userId)
         .set({
-          myrecipes: myBookmarkedRecipies
+          myrecipes: myBookmarkedRecipes
         });
     }
   };
 
   useEffect(() => {
     sendUserData();
-  }, [myBookmarkedRecipies]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [myBookmarkedRecipes]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const getMyBookmarkedRecipes = user => {
-    db.collection("users")
-      .doc(user)
-      .get()
-      .then(doc => setMyBookmarkedRecipes(doc.data().myrecipes));
-    console.log("got recipes");
-  };
+
+const getMyBookmarkedRecipes = user => {
+// useEffect(() => {
+  fetch(`/getmysexyrecipes`)
+  .then((res) => res.json())
+  .then((data) => {
+    setMyBookmarkedRecipes(data.data)
+console.log(data.data, 'AM I WORKING')
+    // setMyBookmarkedRecipes(data.data.user)
+    // setMyBookmarkedRecipes(user)
+
+  })}
+
+    // const getMyBookmarkedRecipes = user => {
+  //   db.collection("users")
+  //     .doc(user)
+  //     .get()
+  //     .then(doc => setMyBookmarkedRecipes(doc.data().myrecipes));
+  //   console.log("got recipes");
+  // };
 
   return (
     <LoginContext.Provider
       value={{
         getMyBookmarkedRecipes,
         errorMessage,
-        myBookmarkedRecipies,
+        myBookmarkedRecipes,
         setMyBookmarkedRecipes,
         signOut,
         sendLogin,

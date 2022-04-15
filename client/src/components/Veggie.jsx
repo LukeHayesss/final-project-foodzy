@@ -6,39 +6,22 @@ import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-
 const Veggie = () => {
     const [veggie, setVeggie] = useState([]);
-    const [ isLoaded, setIsLoaded ] = useState(false);
-
+    const [ isLoaded, setIsLoaded ] = useState(!false);
 
     useEffect(() => {
-    getVeggie();
+        fetch('/getveggie')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data, 'HIHUH')
+        setVeggie(data.data.recipes);
+        setIsLoaded(true); 
+        })
     }, []);
-
-    const getVeggie = async () => {
-
-        //don't refresh the recipes each time we go back to home//
-        const check = localStorage.getItem('veggie');
-        if(check) {
-            setVeggie(JSON.parse(check));
-        } else {
-            const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=50&tags=vegetarian`
-            );
-             const data = await api.json();
-             // console.log(data);
-             localStorage.setItem('veggie', JSON.stringify(data.recipes));
-             setVeggie(data.recipes);
-             
-
-        }
-        setIsLoaded(true);
-    };
 
     return (
         <>
-        
         {(!isLoaded &&
      <LoadingIconWrapper>
      <CircularProgress />

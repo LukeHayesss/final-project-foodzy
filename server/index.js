@@ -2,10 +2,12 @@
 
 const express = require('express');
 const morgan = require('morgan');
+// const Router = require('express')
 
 const PORT = 4000;
 
-
+const {getMySexyRecipes, newUser} = require("./handlers")
+const {getVeggie, getPopular} = require("./handlerz")
 
 
 
@@ -27,7 +29,22 @@ express()
   .use(express.urlencoded({ extended: false }))
   .use('/', express.static(__dirname + '/'))
 
-  // REST endpoints?
-  .get('/bacon', (req, res) => res.status(200).json('🥓'))
 
-  .listen(PORT, () => console.info(`Listening on port ${PORT}`));
+
+
+.get('/getmysexyrecipes', getMySexyRecipes)
+.post('/createnewuser', newUser)
+
+.get('/getveggie', getVeggie)
+.get('/getpopular', getPopular)
+
+
+  .get("*", (req, res) => {
+    res.status(404).json({
+    status: 404,
+    message: "This is obviously not what you are looking for.",
+    });
+})
+
+
+.listen(PORT, () => console.info(`Listening on port ${PORT}`));

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ToggleBookmark from "./ToggleBookmark";
 import style from "../styles/recipe.module.css";
@@ -23,7 +23,7 @@ const RecipePreview = ({ title, image, id }) => {
                 <h2 className={style.title}>{title}</h2>
                 <ToggleBookmark id={id} title={title} image={image} />
                 <button className="goToRecipe">
-                  <Link to={"recipe/" + id}>Go to Recipe</Link>
+                  <Link to={"/recipe/" + id}>Go to Recipe</Link>
                 </button>
               </div>
             </div>

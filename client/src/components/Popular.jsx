@@ -6,27 +6,17 @@ import { Link } from 'react-router-dom';
 
 const Popular = () => {
    const [popular, setPopular] = useState([]);
-
-    useEffect(() => {
-    getPopular();
-    }, []);
-
-    const getPopular = async () => {
-
         //don't refresh the recipes each time we go back to home//
-        const check = localStorage.getItem('popular');
-        if(check) {
-            setPopular(JSON.parse(check));
-        } else {
-            const api = await fetch(
-            `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=50`
-            );
-             const data = await api.json();
-             // console.log(data);
-             localStorage.setItem('popular', JSON.stringify(data.recipes));
-             setPopular(data.recipes);
-        }
-    };
+
+        useEffect(() => {
+            fetch('/getpopular')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data, 'PPPPPPPP')
+            setPopular(data.data.recipes);
+            })
+        }, []);
+
 
     return(
     <div>
