@@ -43,17 +43,10 @@ const getMySexyRecipes = async (req, res) => {
     ///////////////////////
 const addBookmarkedRecipe = async (req, res) => {
   const {myBookmarkedRecipes, currentUser} = req.body;
-  
   try {
-
   console.log(req.body, 'HGVGFG')
-
     const usersRef = doc(db, "users", currentUser);
-    // console.log(currentUser, 'POOPYHEAD')
     setDoc(usersRef, { myrecipes: myBookmarkedRecipes }, { merge: true });
-
-
-    // await updateDoc(usersRef, {myrecipes: myrecipes})
     sendResponse(res, 200, req.body, 'OH WOW')
   } catch (err) {
     sendResponse(res, 400, err, 'no recipes')

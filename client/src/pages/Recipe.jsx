@@ -5,14 +5,11 @@ import { useParams } from "react-router-dom";
 import ToggleBookmark from "../components/ToggleBookmark";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-
-
 const Recipe = () => {
     const [ isLoaded, setIsLoaded ] = useState(false);
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
-
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -20,7 +17,6 @@ const Recipe = () => {
         setDetails(detailData);
         console.log(detailData, 'TESTING');
         setIsLoaded(true);
-
     };
 
     useEffect(() => {

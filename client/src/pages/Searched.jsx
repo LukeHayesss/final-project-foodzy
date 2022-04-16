@@ -62,6 +62,9 @@ const Searched = () => {
 
 const Wrapper = styled.div`
 margin: 0% 8%;
+padding-top: 50px;
+margin-bottom: 5rem;
+
 `
 
 const Grid = styled(motion.div)`
