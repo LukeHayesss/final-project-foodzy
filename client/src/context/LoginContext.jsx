@@ -18,6 +18,7 @@ const LoginContextProvider = props => {
   const [loginPassword, setLoginPassword] = useState("");
   const [myBookmarkedRecipes, setMyBookmarkedRecipes] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  
 
   //register user with email, name, psw to firebase and login
   const sendRegistration = e => {
@@ -66,12 +67,12 @@ const LoginContextProvider = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const setUser = user => {
-    console.log(user, ' FUCK YOU ')
+    console.log(user, 'CURRENT USER')
     setIsLoggedIn(true);
     //get name of user, and save it
     setName(user.displayName);
     setUserId(user.uid);
-    getMyBookmarkedRecipes(user.uid);
+    // getMyBookmarkedRecipes(user.uid);
   };
 
   const sendLogin = e => {
@@ -90,32 +91,48 @@ const LoginContextProvider = props => {
   };
 
   //create a doc with the id = userId, and add recipeId inside
-  const sendUserData = () => {
-    if (userId) {
-      db.collection("users")
-        .doc(userId)
-        .set({
-          myrecipes: myBookmarkedRecipes
-        });
-    }
-  };
+  // const sendUserData = () => {
+  //   if (userId) {
+  //     db.collection("users")
+  //       .doc(userId)
+  //       .set({
+  //         myrecipes: myBookmarkedRecipes
+  //       });
+  //   }
+  // };
 
-  useEffect(() => {
-    sendUserData();
-  }, [myBookmarkedRecipes]); // eslint-disable-line react-hooks/exhaustive-deps
+  // useEffect(() => {
+  //   sendUserData();
+  // }, [myBookmarkedRecipes]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
 const getMyBookmarkedRecipes = user => {
-// useEffect(() => {
   fetch(`/getmysexyrecipes`)
   .then((res) => res.json())
   .then((data) => {
     setMyBookmarkedRecipes(data.data)
 console.log(data.data, 'AM I WORKING')
-    // setMyBookmarkedRecipes(data.data.user)
-    // setMyBookmarkedRecipes(user)
-
   })}
+
+
+  const addBMRecipesToDB = async (userId) =>{
+    fetch('/addbookmarkedrecipe', {
+      method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            myBookmarkedRecipes,
+            currentUser: userId
+          }),
+    })
+  }
+  // addBMRecipiesToDB(userId)
+//  console.log(myBookmarkedRecipes, 'looooony') 
+
+
+
+  
 
     // const getMyBookmarkedRecipes = user => {
   //   db.collection("users")
@@ -152,7 +169,8 @@ console.log(data.data, 'AM I WORKING')
         setRegpassword,
         regpassword2,
         setRegpassword2,
-        sendUserData
+        // sendUserData,
+        addBMRecipesToDB
       }}
     >
       {props.children}

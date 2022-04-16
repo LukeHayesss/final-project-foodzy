@@ -2,11 +2,12 @@
 
 const express = require('express');
 const morgan = require('morgan');
+
 // const Router = require('express')
 
 const PORT = 4000;
 
-const {getMySexyRecipes, newUser} = require("./handlers")
+const {getMySexyRecipes, newUser, addBookmarkedRecipe} = require("./handlers")
 const {getVeggie, getPopular} = require("./handlerz")
 
 
@@ -33,7 +34,11 @@ express()
 
 
 .get('/getmysexyrecipes', getMySexyRecipes)
+
 .post('/createnewuser', newUser)
+.put('/addbookmarkedrecipe', addBookmarkedRecipe)
+
+
 
 .get('/getveggie', getVeggie)
 .get('/getpopular', getPopular)

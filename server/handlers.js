@@ -1,22 +1,26 @@
 "use strict"
+
+const admin = require('firebase-admin');
+const serviceAccount = require('./ServiceAccountKey.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const database = admin.firestore;
+
+
 const express = require('express');
 const app = express();
 app.use(express.static('public'));
-
-const db = require("./firebase");
-const {collection, query, where, getDocs, setDoc} = require("firebase/firestore");
+const { db } = require("./firebase.js");
+const {collection, getDocs, setDoc, doc} = require("firebase/firestore");
 const {getAuth} = require('firebase/auth');
 require("dotenv").config();
-const fetch = require("node-fetch");
-
-
-const API_KEY = "2bf38fc6d7264f1ab8640dc81b0c71e1";
 
 //
 const auth = getAuth().user;
 const user = auth?.currentUser;
-const usersRef = collection(db, 'users')
-const q = query(usersRef, where('uid', '==', 'true'))
+// const usersRef = collection(db, 'users')
+// const q = query(usersRef, where('uid', '==', 'true'))
 
 const sendResponse = (res, status, data, message = 'no message included.') => {
     return res.status(status).json({status, data, message})
@@ -27,9 +31,7 @@ const getMySexyRecipes = async (req, res) => {
         const recipes = collection(db, 'users')
         const recipesSnapshot = await getDocs(recipes)
         const arrOfRecipes = recipesSnapshot.docs.map((doc) => doc.data())
-
-        console.log(arrOfRecipes)
-
+        console.log(arrOfRecipes, 'ARGHHHHH')
         //the below are the keys. we access keys thru dot notation//
         sendResponse(res, 200, arrOfRecipes, 'recipes received')
     }
@@ -37,54 +39,57 @@ const getMySexyRecipes = async (req, res) => {
         sendResponse(res, 400, err, 'no recipes received')
     }}
 
+
+    ///////////////////////
+const addBookmarkedRecipe = async (req, res) => {
+  const {myBookmarkedRecipes, currentUser} = req.body;
+  
+  try {
+
+  console.log(req.body, 'HGVGFG')
+
+    const usersRef = doc(db, "users", currentUser);
+    // console.log(currentUser, 'POOPYHEAD')
+    setDoc(usersRef, { myrecipes: myBookmarkedRecipes }, { merge: true });
+
+
+    // await updateDoc(usersRef, {myrecipes: myrecipes})
+    sendResponse(res, 200, req.body, 'OH WOW')
+  } catch (err) {
+    sendResponse(res, 400, err, 'no recipes')
+  }
+}
+
+
+
+
+
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;
     await setDoc(doc(db, 'users', 'userId'))
 }    
 
-///////////////////
-// const getVeggie = async (req, res) => {
-//     fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=50&tags=vegetarian`)
-// .then((response) => response.json())
-// .then((json) => {
-// res.status(200).json({ status: 200, data: json});
-// })
-// .catch((err) => {
-//     console.log(err);
-//     res.status(404).json({ status: 404, message: 'nothing here'});
-// });
-// };
+// const getMySexyRecipes = async (req, res) => {
+//   console.log("REQ:", req.body);
 
-// const getVeggie = () => {
-// app.get('/getveggie', async (req, res) => {
-//     console.log('getveggie endpoint called');
-//     const url = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=50&tags=vegetarian`;
-//     const options = {
-//         "method" : "GET",
-//     };
-//     const response = await fetch(url, options)
-//     .then(res => res.json())
-//     .catch(e => {
-//         console.error({
-//         "message" : "dammmmn",
-//         error: e,
-//         });
-//     });
-//     res.json(response);
-// });
+//   try {
+//     const usersRef = doc(db, "users", mainuser);
+//     setDoc(usersRef, {myrecipes: myrecipes}, {merge: true})
+//     console.log(querySnapshot, 'LOOOOOOO')
 
-// fetch('https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=50&tags=vegetarian'
-// , {
-//     method: 'GET',
-//     body: JSON.stringify({
-//         name: 'User 1'
-//     })
-// }).then(res => {
-//     return res.json()
-// })
-// .then(data => console.log(data))
-// .catch(error => console.log('ERROR'))
+//     sendResponse(res, 200, req.body, "YAY!!");
+//   } catch (err) {
+//     console.log("ERROR", err);
+//     sendResponse(res, 400, err, "NO!!");
+//   }
+// }
+
+// const getMySexyRecipes = async (req, res) => {
+//     const usersRef = doc(db, "users", currentuser);
 
 
-module.exports = { getMySexyRecipes, newUser }
+
+// }
+
+module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe }

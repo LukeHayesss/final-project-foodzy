@@ -27,7 +27,7 @@ const createProfile = (userRecord, context) => {
   return db
     .collection("users")
     .doc(uid)
-    .set({ uid: uid,  email: email, name: displayName})
+    .set({ uid: uid,  email: email, name: displayName, myrecipes: []})
     .catch(console.error);
 };
 

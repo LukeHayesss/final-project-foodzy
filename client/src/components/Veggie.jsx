@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Veggie = () => {
     const [veggie, setVeggie] = useState([]);
-    const [ isLoaded, setIsLoaded ] = useState(!false);
+    const [ isLoaded, setIsLoaded ] = useState(false);
 
     useEffect(() => {
         fetch('/getveggie')
@@ -63,10 +63,8 @@ const Veggie = () => {
 }
 
 const Wrapper = styled.div`
-/* margin: 4rem 0rem; */
 margin: 0% 8%;
-
-
+padding-top: 50px;
 `
 const Card = styled.div`
 min-height: 15rem;

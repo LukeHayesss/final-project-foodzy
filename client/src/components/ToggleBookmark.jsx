@@ -5,18 +5,20 @@ import { Link } from "react-router-dom";
 
 const ToggleBookmark = ({ id, title, image }) => {
 
-  console.log("toggle")
+  
 
   const {
     myBookmarkedRecipes,
     setMyBookmarkedRecipes,
     isLoggedin,
-    sendUserData
+    sendUserData,
+    addBMRecipesToDB,
+    userId
   } = useContext(LoginContext);
   const [selected, toggleSelected] = useState(false);
 
   console.log(myBookmarkedRecipes, " HELLO ")
-
+console.log("toggle", userId)
 ////////////////////////working again
   const toggleBookmark = () => {
     if (myBookmarkedRecipes.find(inv => inv.id === id)) {
@@ -25,7 +27,8 @@ const ToggleBookmark = ({ id, title, image }) => {
       );
 
       toggleSelected(false);
-      sendUserData();
+      // sendUserData();
+      addBMRecipesToDB(userId);
     } else {
       setMyBookmarkedRecipes(myRecipes => [
         ...myRecipes,
@@ -33,7 +36,8 @@ const ToggleBookmark = ({ id, title, image }) => {
       ]);
 
       toggleSelected(true);
-      sendUserData();
+      // sendUserData();
+      addBMRecipesToDB(userId);
     }
   };
 

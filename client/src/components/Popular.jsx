@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const Popular = () => {
    const [popular, setPopular] = useState([]);
-        //don't refresh the recipes each time we go back to home//
 
         useEffect(() => {
             fetch('/getpopular')
