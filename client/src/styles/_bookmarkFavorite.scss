@@ -1,0 +1,22 @@
+//main: App.scss
+
+.toggleBookmark {
+    cursor: pointer;
+    fill: black;
+  }
+  
+  .toggleBookmark-active {
+    fill: rgb(232, 59, 132);
+    stroke: white;
+    stroke-width: 3px;
+  }
+  
+  .toggleBookmark {
+    margin: 3px;
+  }
+  
+  .loginToBookmark {
+    text-decoration: none;
+    color: black;
+    font-size: 0.7rem;
+  }

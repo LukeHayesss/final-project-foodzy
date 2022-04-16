@@ -1,0 +1,14 @@
+//main: App.scss
+
+.recipes {
+    @include flex(space-around, flex-start, row);
+    flex-wrap: wrap;
+  }
+  
+  .noRecipe{
+    @include flex(center, center, raw);
+    height: 80vh;
+    &__p{
+      font-size:clamp(1rem, 3vw, 2rem);
+    }
+  }

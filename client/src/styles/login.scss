@@ -1,0 +1,36 @@
+//main: App.scss
+
+.login, .register {
+    width: clamp(200px, 80%, 400px);
+    margin: auto;
+    height: 80vh;
+    @include flex(center, center, column);
+  
+    h1 {
+      font-size: clamp(1rem, 2vw, 2rem);
+    }
+  
+    form {
+      height: 150px;
+      @include flex(space-around, center, column);
+    }
+  
+    input {
+      padding: 0.2rem;
+    }
+  
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  
+  .register .register__form{
+    height: 300px;
+  }
+  
+  .error{
+    color: red;
+    font-size: 0.9rem;
+  }

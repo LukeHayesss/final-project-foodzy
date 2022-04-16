@@ -1,0 +1,50 @@
+.recipe {
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(21, 22, 21, 0.5);
+    margin: 10px;
+    align-items: center;
+    background: white;
+    width: clamp(200px, 30%, 300px);
+    height: auto;
+  }
+  
+  .header {
+    display: flex;
+  }
+  
+  .icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  
+  .about {}
+  
+  .image {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .alt{
+    padding: 2rem 1rem;
+    line-height: 1.2em;
+    display: inline-block;
+  }
+  
+  .nutrition {
+    color: orange;
+    font-size: 0.8rem;
+  }
+  
+  .recipe__photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
