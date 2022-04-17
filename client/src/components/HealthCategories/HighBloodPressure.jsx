@@ -10,18 +10,36 @@ const HighBloodPressure = () => {
    const [highBloodPressure, setHighBloodPressure] = useState([]);
    const [ isLoaded, setIsLoaded ] = useState(false);
 
-    useEffect(() => {
-    getHighBloodPressure();
-    }, []);
 
-    const getHighBloodPressure = async () => {
-            const data = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&type=bread&type=sauce&apiKey=${process.env.REACT_APP_API_KEY}&number=80&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&minPotassium=20`);
-             const recipes = await data.json();
-             console.log(data);
-             setHighBloodPressure(recipes.results);
-             setIsLoaded(true);
-    };
+
+useEffect(() => {
+    fetch('/highbp')
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data, 'HIGH BP')
+        setHighBloodPressure(data.data.results);
+        setIsLoaded(true);
+    })
+}, [])
+
+
+
+
+
+
+
+    // useEffect(() => {
+    // getHighBloodPressure();
+    // }, []);
+
+    // const getHighBloodPressure = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&type=bread&type=sauce&apiKey=${process.env.REACT_APP_API_KEY}&number=80&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&minPotassium=20`);
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setHighBloodPressure(recipes.results);
+    //          setIsLoaded(true);
+    // };
 
     return(
     <>
@@ -46,8 +64,8 @@ const HighBloodPressure = () => {
     return(
         <Card key={recipe.id}>
              <Link to={'/recipe/' + recipe.id}>
-                 <p>{recipe.title}</p>
                  <img src={recipe.image} alt={recipe.title}/>
+                 <h4>{recipe.title}</h4>
              </Link>
         </Card>
     );  

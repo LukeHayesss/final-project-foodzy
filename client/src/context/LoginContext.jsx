@@ -127,12 +127,6 @@ console.log(data.data, 'AM I WORKING')
           }),
     })
   }
-  // addBMRecipiesToDB(userId)
-//  console.log(myBookmarkedRecipes, 'looooony') 
-
-
-
-  
 
     // const getMyBookmarkedRecipes = user => {
   //   db.collection("users")

@@ -15,15 +15,19 @@ import { FaAngleDown } from "react-icons/fa";
 import Dropdown from "./Dropdown/Dropdown";
 import './Dropdown/Navbar.css';
 
+import Dropdown2 from "./Dropdown2/Dropdown2";
+import './Dropdown2/Navbar2.css';
+// import Error from "../pages/Error";
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [dropdown2, setDropdown2] = useState(false);
   const handleClick = () => setClick(!click);
 
 
-  //tried to do mobile but no time//
+//DIET DROPDOWN//  
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
@@ -31,7 +35,6 @@ const App = () => {
       setDropdown(true);
     }
   };
-
   const onMouseLeave = () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
@@ -40,62 +43,76 @@ const App = () => {
     }
   };
 
+//HEALTH DROPDOWN//
+const onMouseEnter2 = () => {
+  if (window.innerWidth < 960) {
+    setDropdown2(false);
+  } else {
+    setDropdown2(true);
+  }
+};
+const onMouseLeave2 = () => {
+  if (window.innerWidth < 960) {
+    setDropdown2(false);
+  } else {
+    setDropdown2(false);
+  }
+};
 
   return (
     <div className="app">
       <BrowserRouter>
-      <GlobalStyles />
-
-      <Wrapper>
-      <NavMenu>
-        <GiKnifeFork />
-        <Logo to={'/'}>Yummyyy</Logo>
-      </NavMenu>
-
-      <Navigation>
-
-      <StyledNavLink exact to="/about">
+          <GlobalStyles />
+          <Wrapper>
+          <NavMenu>
+          <GiKnifeFork />
+          <Logo to={'/'}>Yummyyy</Logo>
+          </NavMenu>
+          <Navigation>
+          <StyledNavLink exact to="/about">
           About
-      </StyledNavLink>
-
-
-          <li
-            className='nav-item'
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <StyledNavLink
-              to='/'
-              className='nav-links'
-            >
-              Diets <FaAngleDown />
-            </StyledNavLink>
-            {dropdown && <Dropdown />}
-          </li>
-
-          <StyledNavLink exact to="/myrecipes">
-            My Recipes
           </StyledNavLink>
 
+          {/* DIET DROPDOWN */}
+          <li className='nav-item'
+          onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          <StyledNavLink to='/' className='nav-links'>
+          Diets<FaAngleDown />
+          </StyledNavLink>
+          {dropdown && <Dropdown />}
+          </li>
+
+          {/* HEALTH DROPDOWN */}
+          <li className='nav-item-2'
+          onMouseEnter={onMouseEnter2} onMouseLeave={onMouseLeave2}>
+          <StyledNavLink to='/' className='nav-links-2'>
+          Health <FaAngleDown />
+          </StyledNavLink>
+          {dropdown2 && <Dropdown2 />}
+          </li>
+          
+
+          <StyledNavLink exact to="/myrecipes">
+            MyRecipes
+          </StyledNavLink>
           <StyledNavLink exact to="/register">
             Sign Up
           </StyledNavLink>
-
           {isLoggedin ? (
-        <p className="login_button" onClick={signOut}>
+          <p className="login_button" onClick={signOut}>
           Logout
-        </p>
-      ) : (
-        <StyledNavLink to="/login" className="login_button">
+          </p>
+          ) : (
+          <StyledNavLink to="/login" className="login_button">
           Login
-        </StyledNavLink>
-      )}
-
+          </StyledNavLink>
+          )}
           <Search />
           </Navigation>
-         </Wrapper>
-        {/* <Category /> */}
-        <Pages />
+          </Wrapper>
+          <Pages />
+
+          {/* <Error to={'*'}/> */}
         <Footer />
       </BrowserRouter>
     </div>
@@ -116,9 +133,8 @@ color: black;
 `
 
 const NavMenu = styled.div`
-padding: 2rem 0rem;
+padding: 2rem 0.9rem;
 display: flex;
-/* justify-content: space-around; */
 align-items: center;
 svg {
   font-size: 4rem;
@@ -142,7 +158,6 @@ const StyledNavLink = styled(NavLink)`
 const Navigation = styled.ul`
   display: flex;
   justify-content: space-around; 
-  /* padding-bottom: 2rem; */
 `;
 
 export default App;

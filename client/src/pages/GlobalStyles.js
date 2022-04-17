@@ -49,7 +49,7 @@ p {
     color: black;
     &:hover {
     color: black;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 }
 `

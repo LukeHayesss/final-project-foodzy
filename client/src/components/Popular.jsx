@@ -3,24 +3,34 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const Popular = () => {
    const [popular, setPopular] = useState([]);
+   const [ isLoaded, setIsLoaded ] = useState(false);
+
 
         useEffect(() => {
             fetch('/getpopular')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data, 'PPPPPPPP')
             setPopular(data.data.recipes);
+            setIsLoaded(true);
             })
         }, []);
-
-
+        
     return(
+        <>
+        {(!isLoaded &&
+     <LoadingIconWrapper>
+     <CircularProgress />
+       </LoadingIconWrapper>)}
+       {(isLoaded && 
+       <div>
     <div>
 <Wrapper>
-    <h3>Popular Recipes</h3>
+    <h3>Trending This Week</h3>
 
     <Splide options={{
         perPage: 4,
@@ -46,21 +56,22 @@ const Popular = () => {
 </Splide>
 </Wrapper>
 </div>
-)
-}
+</div>
+)}
+</>
+)}
 
 const Wrapper = styled.div`
-/* margin: 4rem 0rem; */
 margin: 0% 8%;
-margin-bottom: 50px;
-
-
+margin-bottom: 80px;
+margin-top: 5rem;
 `
 const Card = styled.div`
 min-height: 15rem;
 border-radius: 1rem;
 overflow: hidden;
 position: relative;
+
 
 img {
 border-radius: 1rem;
@@ -97,6 +108,20 @@ position: absolute;
 width: 100%;
 height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+transition: 0.3s ease-out;
+&:hover {
+    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0, 0.3);
+}
 `
+
+const LoadingIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 400px;
+  padding-bottom: 500px;
+
+`
+
 
 export default Popular;

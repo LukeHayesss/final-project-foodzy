@@ -43,53 +43,20 @@ const getMySexyRecipes = async (req, res) => {
     ///////////////////////
 const addBookmarkedRecipe = async (req, res) => {
   const {myBookmarkedRecipes, currentUser} = req.body;
-  
   try {
-
   console.log(req.body, 'HGVGFG')
-
     const usersRef = doc(db, "users", currentUser);
-    // console.log(currentUser, 'POOPYHEAD')
     setDoc(usersRef, { myrecipes: myBookmarkedRecipes }, { merge: true });
-
-
-    // await updateDoc(usersRef, {myrecipes: myrecipes})
     sendResponse(res, 200, req.body, 'OH WOW')
   } catch (err) {
     sendResponse(res, 400, err, 'no recipes')
   }
 }
 
-
-
-
-
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;
     await setDoc(doc(db, 'users', 'userId'))
 }    
-
-// const getMySexyRecipes = async (req, res) => {
-//   console.log("REQ:", req.body);
-
-//   try {
-//     const usersRef = doc(db, "users", mainuser);
-//     setDoc(usersRef, {myrecipes: myrecipes}, {merge: true})
-//     console.log(querySnapshot, 'LOOOOOOO')
-
-//     sendResponse(res, 200, req.body, "YAY!!");
-//   } catch (err) {
-//     console.log("ERROR", err);
-//     sendResponse(res, 400, err, "NO!!");
-//   }
-// }
-
-// const getMySexyRecipes = async (req, res) => {
-//     const usersRef = doc(db, "users", currentuser);
-
-
-
-// }
 
 module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe }
