@@ -27,9 +27,12 @@ const MyRecipes = props => {
     );
   } else {
     return (
+      <SecondWrap>
       <div className="noRecipe">
-        <p className="noRecipe__p">You don't have any bookmarked recipes.</p>
+        <p className="noRecipe__p">You don't have any bookmarked recipes. 
+        Go back <a href="/">home</a> to find an awesome recipe!</p>
       </div>
+      </SecondWrap>
     );
     
   }
@@ -38,7 +41,14 @@ const MyRecipes = props => {
 const Wrapper = styled.div`
 padding-top: 50px;
 margin-bottom: 5rem;
-
 `
+
+const SecondWrap = styled.div`
+
+a {
+  font-size: 25px;
+  color: black;
+}`
+
 
 export default MyRecipes;

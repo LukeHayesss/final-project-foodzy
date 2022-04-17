@@ -4,12 +4,18 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import ToggleBookmark from "../components/ToggleBookmark";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { BiPrinter } from 'react-icons/bi';
+
 
 const Recipe = () => {
     const [ isLoaded, setIsLoaded ] = useState(false);
     let params = useParams()
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
+
+    const printPageHandler = () => {
+        window.print();
+    };
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
@@ -42,6 +48,9 @@ const Recipe = () => {
 
                 <MiniWrap>
                 <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
+                    <Button2 onClick={printPageHandler}>
+                        <BiPrinter size={20}/> Print Recipe
+                    </Button2>
                 </MiniWrap>
 
             </div>
@@ -117,10 +126,28 @@ const Button = styled.button`
 padding: 1rem 2rem;
 color: #313131;
 background: white;
-border: 2px solid black;
+border: 1px solid black;
 margin-right: 2rem;
 font-weight: 600;
+font-size: 14px;
 cursor: pointer;
+border-radius: 2px;
+`
+
+const Button2 = styled.button`
+background-color: #313131;
+color: white;
+border: 1px solid black;
+font-size: 14px;
+border-radius: 2px;
+padding: 8px 15px;
+margin-left: 30px;
+font-weight: 600;
+cursor: pointer;
+&:hover {
+    background-color: white;
+    color: #313131;
+}
 `
 
 const Info = styled.div`

@@ -40,7 +40,12 @@ box-sizing:border-box}
     flex-direction:raw;
     height:80vh}
     
-.noRecipe__p{font-size:clamp(1rem, 3vw, 2rem)}
+.noRecipe__p{
+    font-size: 25px;
+    cursor: default;
+    text-decoration: none;
+    
+}
     
 .checkbox{padding:5px;margin:0 5px}
 
@@ -52,7 +57,11 @@ box-sizing:border-box}
 
 .toggleBookmark{margin:3px}
 
-.loginToBookmark{text-decoration:none;color:black;font-size:1.2rem}
+.loginToBookmark{
+    text-decoration:none;
+    color:black;
+    font-size:1.8rem;
+}
 
 .flip_box {
     border-radius:5px;

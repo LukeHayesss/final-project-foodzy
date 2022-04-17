@@ -16,7 +16,8 @@ import Dropdown from "./Dropdown/Dropdown";
 import './Dropdown/Navbar.css';
 
 import Dropdown2 from "./Dropdown2/Dropdown2";
-import './Dropdown2/Navbar2.css'
+import './Dropdown2/Navbar2.css';
+// import Error from "../pages/Error";
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
@@ -110,6 +111,8 @@ const onMouseLeave2 = () => {
           </Navigation>
           </Wrapper>
           <Pages />
+
+          {/* <Error to={'*'}/> */}
         <Footer />
       </BrowserRouter>
     </div>

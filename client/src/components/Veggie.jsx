@@ -5,7 +5,6 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-
 const Veggie = () => {
     const [veggie, setVeggie] = useState([]);
     const [ isLoaded, setIsLoaded ] = useState(false);
@@ -30,8 +29,7 @@ const Veggie = () => {
        <div>
 <div>
 <Wrapper>
-    <h3>Veggie Picks</h3>
-
+   <h3>50 Exciting New Recipes</h3>
     <Splide options={{
         perPage: 3,
         arrows: false,
@@ -111,7 +109,7 @@ height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 transition: 0.3s ease-out;
 &:hover {
-    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0, 0.3);
 }
 `
 
