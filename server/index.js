@@ -3,12 +3,10 @@
 const express = require('express');
 const morgan = require('morgan');
 
-// const Router = require('express')
-
 const PORT = 4000;
 
 const {getMySexyRecipes, newUser, addBookmarkedRecipe} = require("./handlers")
-const {getVeggie, getPopular} = require("./handlerz")
+const {getVeggie, getPopular, getCuisine, getSearched} = require("./handlerz")
 
 
 
@@ -34,7 +32,6 @@ express()
 
 
 .get('/getmysexyrecipes', getMySexyRecipes)
-
 .post('/createnewuser', newUser)
 .put('/addbookmarkedrecipe', addBookmarkedRecipe)
 
@@ -42,6 +39,10 @@ express()
 
 .get('/getveggie', getVeggie)
 .get('/getpopular', getPopular)
+.get('/cuisine/:name', getCuisine)
+.get('/searched/:name', getSearched)
+
+
 
 
   .get("*", (req, res) => {

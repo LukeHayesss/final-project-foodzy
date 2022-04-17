@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import {motion} from 'framer-motion/dist/framer-motion';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -8,21 +8,30 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Cuisine = () => {
     const [ isLoaded, setIsLoaded ] = useState(false);
-    const [cuisine, setCuisine] = useState([]);
+    const [cuisine, setCuisine] = useState(['name']);
     let params = useParams();
 
- const getCuisine = async (name) => {
-     const data = await fetch(
-     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
-     const recipes = await data.json();
-     setCuisine(recipes.results);
-     setIsLoaded(true);
- }
+    useEffect(() => {
+        async function fetchData(name) {
+            const response = await fetch(`/cuisine/${name}`)
+            const data = await response.json()
+            setCuisine(data.results);
+            setIsLoaded(true);
+        }
+        fetchData(params.type)
+    }, [])
 
-useEffect(() => {
-getCuisine(params.type)
-// console.log(params.type)
-  }, [params.type]);
+//  const getCuisine = async (name) => {
+//      const data = await fetch(
+//      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
+//      const recipes = await data.json();
+//      setCuisine(recipes.results);
+//      setIsLoaded(true);
+//  }
+
+// useEffect(() => {
+// getCuisine(params.type)
+//   }, [params.type]);
 
     return (
         <>
@@ -59,6 +68,7 @@ getCuisine(params.type)
 
 const Wrapper = styled.div`
 margin: 0% 8%;
+margin-bottom: 5rem;
 `
 
 const Grid = styled(motion.div)`

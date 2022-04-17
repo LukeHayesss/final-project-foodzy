@@ -1,4 +1,6 @@
+const { app } = require("firebase-admin");
 const request = require("request-promise");
+const fetch = require("node-fetch");
 
 //VEGGIE//
 const getVeggie = async (req, res) => {
@@ -7,7 +9,7 @@ const getVeggie = async (req, res) => {
       headers: {
         Accept: 'application/json'
       }}
-    const response = await request('https://api.spoonacular.com/recipes/random?apiKey=f1bc96b0f1354fd1920767951faf8b24&number=20&tags=vegetarian', veggieHeaders)
+    const response = await request('https://api.spoonacular.com/recipes/random?apiKey=1dfb378ff1614c35b795e10c70c64591&number=20&tags=vegetarian', veggieHeaders)
     const parsedResponse = JSON.parse(response);
     const veggie = parsedResponse;
     res.status(200).json({ status: 200, data: veggie, message: "Yes kween"});
@@ -23,7 +25,7 @@ const getPopular = async (req, res) => {
         headers: {
           Accept: 'application/json'
         }}
-      const response = await request(`https://api.spoonacular.com/recipes/random?apiKey=f1bc96b0f1354fd1920767951faf8b24&number=20`, popularHeaders)
+      const response = await request(`https://api.spoonacular.com/recipes/random?apiKey=1dfb378ff1614c35b795e10c70c64591&number=20`, popularHeaders)
       const parsedResponse = JSON.parse(response);
       const popular = parsedResponse;
       res.status(200).json({ status: 200, data: popular, message: "Its ok"});
@@ -33,15 +35,23 @@ const getPopular = async (req, res) => {
     }
   }
 
-//RECIPE PARAMS//
-// const Recipe = async (req, res) => {
-//   try {
-//     const recipeHeaders = {
-//       headers: {
-//         Accept: 'application/json'
-//       }}
-//   }
-// }
-   
+//DIETS//
+  const getCuisine = async (req, res) => {
+    const {name} = req.params;
+    const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=1dfb378ff1614c35b795e10c70c64591&diet=${name}&number=22`)
+    const data = await response.json()
+    res.json(data);
+  };
+  
+//SEARCHED//
+const getSearched = async (req, res) => {
+  const {name} = req.params;
+  const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=1dfb378ff1614c35b795e10c70c64591&query=${name}&number=22`)
+  const data = await response.json()
+  res.json(data)
+}
 
-module.exports = { getVeggie, getPopular };
+
+
+
+module.exports = { getVeggie, getPopular, getCuisine, getSearched};

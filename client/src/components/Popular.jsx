@@ -11,12 +11,10 @@ const Popular = () => {
             fetch('/getpopular')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data, 'PPPPPPPP')
             setPopular(data.data.recipes);
             })
         }, []);
-
-
+        
     return(
     <div>
 <Wrapper>
@@ -50,11 +48,8 @@ const Popular = () => {
 }
 
 const Wrapper = styled.div`
-/* margin: 4rem 0rem; */
 margin: 0% 8%;
 margin-bottom: 50px;
-
-
 `
 const Card = styled.div`
 min-height: 15rem;

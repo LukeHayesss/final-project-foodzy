@@ -10,21 +10,30 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const Searched = () => {
 
     const [ isLoaded, setIsLoaded ] = useState(false);
-
-    const [searchedRecipes, setSearchedRecipes] = useState([]);
+    const [searchedRecipes, setSearchedRecipes] = useState(['name']);
     let params = useParams();
 
-    const getSearched = async (name) => {
-        const data = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
-        const recipes = await data.json();
-        setSearchedRecipes(recipes.results);
-        setIsLoaded(true);
-    };
-
     useEffect(() => {
-    getSearched(params.search);
-    }, [params.search]);
+        async function fetchData(name) {
+            const response = await fetch(`/searched/${name}`)
+            const data = await response.json()
+            setSearchedRecipes(data.results);
+            setIsLoaded(true);
+        }
+        fetchData(params.search)
+    }, [])
+
+    // const getSearched = async (name) => {
+    //     const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
+    //     const recipes = await data.json();
+    //     setSearchedRecipes(recipes.results);
+    //     setIsLoaded(true);
+    // };
+
+    // useEffect(() => {
+    // getSearched(params.search);
+    // }, [params.search]);
 
     return (
         <>
