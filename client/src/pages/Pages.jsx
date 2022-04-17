@@ -14,6 +14,7 @@ import About from "./About";
 import Diabetes from "./HealthCategories/Diabetes";
 import HighBp from "./HealthCategories/HighBp";
 import Hearty from "./HealthCategories/Heart";
+import Health from "./Health";
 
 
 const Pages = () => {
@@ -32,6 +33,8 @@ const Pages = () => {
         <Route path="/login" element={!isLoggedin ? <LoginPage /> : <Navigate to="/" />}/>
         <Route path='/searched/:search' element={<Searched />} />
         <Route path='/recipe/:name' element={<Recipe />} />
+
+        {/* <Route path='/health' element={<Health />} /> */}
         <Route path='/heart' element={<Hearty/>}/>
         <Route path='/diabetes' element={<Diabetes/>}/>
         <Route path='/highbp' element={<HighBp/>}/>

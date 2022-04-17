@@ -56,8 +56,8 @@ transition={{duration: 0.5}}
     return(
         <Card key={recipe.id}>
              <Link to={'/recipe/' + recipe.id}>
-                 <p>{recipe.title}</p>
                  <img src={recipe.image} alt={recipe.title}/>
+                 <h4>{recipe.title}</h4>
              </Link>
         </Card>
     );  

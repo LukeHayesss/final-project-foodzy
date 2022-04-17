@@ -31,13 +31,12 @@ const Search = () => {
 }
 
 const FormStyle = styled.form`
-margin: 0rem 20rem;
-
+margin: 0rem 15rem;
 div {
     display: flex;
     /* width: 50%; */
     position: relative;
-    left: 275px;
+    left: 215px;
     bottom: 25px;
 }
 input {

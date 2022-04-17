@@ -80,6 +80,7 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 }
+
 p {
     position: absolute;
     z-index: 10;
@@ -108,6 +109,10 @@ position: absolute;
 width: 100%;
 height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+transition: 0.3s ease-out;
+&:hover {
+    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0, 0.2);
+}
 `
 
 const LoadingIconWrapper = styled.div`

@@ -50,12 +50,14 @@ const Popular = () => {
 const Wrapper = styled.div`
 margin: 0% 8%;
 margin-bottom: 50px;
+margin-top: 5rem;
 `
 const Card = styled.div`
 min-height: 15rem;
 border-radius: 1rem;
 overflow: hidden;
 position: relative;
+
 
 img {
 border-radius: 1rem;
@@ -92,6 +94,10 @@ position: absolute;
 width: 100%;
 height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+transition: 0.3s ease-out;
+&:hover {
+    box-shadow: inset 0 0 0 2000px rgb(0, 0, 0, 0.2);
+}
 `
 
 export default Popular;
