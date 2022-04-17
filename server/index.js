@@ -5,8 +5,21 @@ const morgan = require('morgan');
 
 const PORT = 4000;
 
-const {getMySexyRecipes, newUser, addBookmarkedRecipe} = require("./handlers")
-const {getVeggie, getPopular, getCuisine, getSearched} = require("./handlerz")
+const {
+  getMySexyRecipes, 
+  newUser, 
+  addBookmarkedRecipe
+} = require("./handlers")
+
+const {
+  getVeggie, 
+  getPopular, 
+  getCuisine, 
+  getSearched, 
+  diabeticRecipes, 
+  heartRecipes, 
+  highbpRecipes
+} = require("./handlerz")
 
 
 
@@ -41,6 +54,9 @@ express()
 .get('/getpopular', getPopular)
 .get('/cuisine/:name', getCuisine)
 .get('/searched/:name', getSearched)
+.get('/diabetes', diabeticRecipes)
+.get('/heart', heartRecipes)
+.get('/highbp', highbpRecipes)
 
 
 

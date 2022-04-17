@@ -4,27 +4,34 @@ import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {motion} from 'framer-motion/dist/framer-motion';
 
-
-
 const Heart = () => {
    const [heart, setHeart] = useState([]);
    const [ isLoaded, setIsLoaded ] = useState(false);
 
+   useEffect(() => {
+       fetch('/heart')
+       .then((res) => res.json())
+       .then((data) => {
+           console.log(data, 'HEART RECIPE')
+           setHeart(data.data.results);
+           setIsLoaded(true);
+       })
+   }, []);
 
-    useEffect(() => {
-    getHeart();
-    }, []);
+    // useEffect(() => {
+    // getHeart();
+    // }, []);
 
-    const getHeart = async () => {
-            const data = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&maxSodium=50`);
+    // const getHeart = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&maxSodium=50`);
             
-             const recipes = await data.json();
-             console.log(data);
-             setHeart(recipes.results);
-             setIsLoaded(true);
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setHeart(recipes.results);
+    //          setIsLoaded(true);
 
-    };
+    // };
 
     return(
         <>

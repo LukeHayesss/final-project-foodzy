@@ -10,17 +10,28 @@ const Diabetic = () => {
    const [ isLoaded, setIsLoaded ] = useState(false);
 
     useEffect(() => {
-    getDiabetic();
-    }, []);
+    fetch('/diabetes')
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data, 'DIABETIC RECIPE')
+        setDiabetic(data.data.results);
+        setIsLoaded(true);
+    })
+}, []);
 
-    const getDiabetic = async () => {
-            const data = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&sidedish&salad&soup&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50`);
-             const recipes = await data.json();
-             console.log(data);
-             setDiabetic(recipes.results);
-             setIsLoaded(true);
-    };
+
+    // useEffect(() => {
+    // getDiabetic();
+    // }, []);
+
+    // const getDiabetic = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&sidedish&salad&soup&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50`);
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setDiabetic(recipes.results);
+    //          setIsLoaded(true);
+    // };
 
     return(
         <>

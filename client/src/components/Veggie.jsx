@@ -14,7 +14,7 @@ const Veggie = () => {
         fetch('/getveggie')
         .then((res) => res.json())
         .then((data) => {
-            console.log(data, 'HIHUH')
+            console.log(data, 'VEGGIE')
         setVeggie(data.data.recipes);
         setIsLoaded(true); 
         })
