@@ -14,13 +14,12 @@ app.use(express.static('public'));
 const { db } = require("./firebase.js");
 const {collection, getDocs, setDoc, doc} = require("firebase/firestore");
 const {getAuth} = require('firebase/auth');
+const { ref } = require('firebase-functions/v1/database');
 require("dotenv").config();
 
 //
 const auth = getAuth().user;
 const user = auth?.currentUser;
-// const usersRef = collection(db, 'users')
-// const q = query(usersRef, where('uid', '==', 'true'))
 
 const sendResponse = (res, status, data, message = 'no message included.') => {
     return res.status(status).json({status, data, message})
@@ -53,10 +52,12 @@ const addBookmarkedRecipe = async (req, res) => {
   }
 }
 
+////////////////////
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;
     await setDoc(doc(db, 'users', 'userId'))
+    // this.db.collection('users').doc().set(Object.assign({}, user))
 }    
 
 module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe }

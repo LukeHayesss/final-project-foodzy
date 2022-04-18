@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import SpinningCircle from "./SpinningCircle";
 
 
 const Popular = () => {
@@ -24,7 +24,7 @@ const Popular = () => {
         <>
         {(!isLoaded &&
      <LoadingIconWrapper>
-     <CircularProgress />
+     <SpinningCircle />
        </LoadingIconWrapper>)}
        {(isLoaded && 
        <div>
