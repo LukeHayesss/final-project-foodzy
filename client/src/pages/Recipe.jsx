@@ -28,22 +28,7 @@ const Recipe = () => {
     fetchData(params.name)
 }, [])
 
-
-
-    // const fetchDetails = async () => {
-    //     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-    //     const detailData = await data.json();
-    //     setDetails(detailData);
-    //     console.log(detailData, 'TESTING');
-    //     setIsLoaded(true);
-    // };
-
-    // useEffect(() => {
-    //     fetchDetails();
-    // }, [params.name])
-
-
-    return (
+return (
         <>
         {(!isLoaded &&
         <LoadingIconWrapper>
@@ -51,12 +36,9 @@ const Recipe = () => {
         </LoadingIconWrapper>)}
         {(isLoaded && 
         <div>
-
         <DetailWrapper>
         <div>
-            <TitleDiv>
           <h2>{details.title}</h2>
-             </TitleDiv>
           <MoreDetails>
             <h3>Servings: {details.servings}</h3>
             <Minutes><h3>Ready in {details.readyInMinutes} minutes.</h3></Minutes>
@@ -113,11 +95,6 @@ display: flex;
 width: 400px;
 align-items: center;
 `
-const TitleDiv = styled.div`
-display: flex;
-justify-content: center;
-`
-
 
 const Minutes = styled.div`
 margin-left: 20px;
@@ -199,3 +176,15 @@ const LoadingIconWrapper = styled.div`
 `
 
 export default Recipe;
+
+    // const fetchDetails = async () => {
+    //     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
+    //     const detailData = await data.json();
+    //     setDetails(detailData);
+    //     console.log(detailData, 'TESTING');
+    //     setIsLoaded(true);
+    // };
+
+    // useEffect(() => {
+    //     fetchDetails();
+    // }, [params.name])

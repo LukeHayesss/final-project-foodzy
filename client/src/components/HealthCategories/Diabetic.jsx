@@ -19,20 +19,6 @@ const Diabetic = () => {
     })
 }, []);
 
-
-    // useEffect(() => {
-    // getDiabetic();
-    // }, []);
-
-    // const getDiabetic = async () => {
-    //         const data = await fetch(
-    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&sidedish&salad&soup&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50`);
-    //          const recipes = await data.json();
-    //          console.log(data);
-    //          setDiabetic(recipes.results);
-    //          setIsLoaded(true);
-    // };
-
     return(
         <>
         {(!isLoaded &&
@@ -109,3 +95,16 @@ padding-bottom: 500px;
 `
 
 export default Diabetic;
+
+   // useEffect(() => {
+    // getDiabetic();
+    // }, []);
+
+    // const getDiabetic = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&sidedish&salad&soup&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50`);
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setDiabetic(recipes.results);
+    //          setIsLoaded(true);
+    // };
