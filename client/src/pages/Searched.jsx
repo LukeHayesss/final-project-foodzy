@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion/dist/framer-motion';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import SpinningCircle from "../components/SpinningCircle";
 
 const Searched = () => {
 
@@ -40,7 +39,7 @@ const Searched = () => {
 
         {(!isLoaded &&
      <LoadingIconWrapper>
-     <CircularProgress />
+     <SpinningCircle />
        </LoadingIconWrapper>)}
        {(isLoaded && 
        <div>

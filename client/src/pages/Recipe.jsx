@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import ToggleBookmark from "../components/ToggleBookmark";
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { BiPrinter } from 'react-icons/bi';
+import SpinningCircle from "../components/SpinningCircle";
 
 
 const Recipe = () => {
@@ -17,17 +17,30 @@ const Recipe = () => {
         window.print();
     };
 
-    const fetchDetails = async () => {
-        const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-        const detailData = await data.json();
-        setDetails(detailData);
-        console.log(detailData, 'TESTING');
-        setIsLoaded(true);
-    };
+useEffect(() => {
+    async function fetchData(name) {
+        const response = await fetch(`/recipe/${name}`)
+        const data = await response.json()
+        setDetails(data);
+        console.log(data, 'DETAILZZZ')
+        setIsLoaded(true)
+    }
+    fetchData(params.name)
+}, [])
 
-    useEffect(() => {
-        fetchDetails();
-    }, [params.name])
+
+
+    // const fetchDetails = async () => {
+    //     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
+    //     const detailData = await data.json();
+    //     setDetails(detailData);
+    //     console.log(detailData, 'TESTING');
+    //     setIsLoaded(true);
+    // };
+
+    // useEffect(() => {
+    //     fetchDetails();
+    // }, [params.name])
 
 
     return (
@@ -36,7 +49,7 @@ const Recipe = () => {
 
         {(!isLoaded &&
      <LoadingIconWrapper>
-     <CircularProgress />
+     <SpinningCircle />
        </LoadingIconWrapper>)}
        {(isLoaded && 
        <div>
@@ -113,7 +126,7 @@ ul {
     margin-top: 2rem;
 }
 h3 {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 p {
     font-size: 14px;

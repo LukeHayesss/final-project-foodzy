@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-//import { Link } from "react-router-dom";//
 import { NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import Foodzy from '../img/Foodzy 2.svg';
 
 const Footer = () => {
-  // const handleClickScroll = () => {
-  //   window.scrollTo(0,0)
-  // };
 
   return (
 
@@ -18,7 +15,9 @@ const Footer = () => {
 }}>
       <div>
         <CompanyInfoContainer>
-        <HomeNavLink exact to="/">Yummyyyyy</HomeNavLink>
+        <HomeNavLink exact to='/'>
+          <Logo src={Foodzy}></Logo>
+          </HomeNavLink>
           
           <Icons>
             <IconLink href="/" target="_blank">
@@ -60,13 +59,13 @@ const Footer = () => {
 
 
 const HomeNavLink = styled(NavLink)`
-cursor: pointer;
-text-decoration: none;
-color: black;
-font-family: 'lobster';
-font-size: 45px;
-/* padding-right: 50px; */
-`
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+const Logo = styled.img`
+  height: 50px;
+`;
 
 
 //pin the footer at the bottom//

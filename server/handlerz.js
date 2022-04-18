@@ -106,6 +106,12 @@ const getSearched = async (req, res) => {
   res.json(data)
 }
 
+const getRecipeDetails = async (req, res) => {
+  const {name} = req.params;
+  const response = await fetch(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${apiKey}`)
+  const data = await response.json()
+  res.json(data)
+}
 
 
 
@@ -116,5 +122,6 @@ module.exports = {
   getSearched, 
   diabeticRecipes, 
   heartRecipes, 
-  highbpRecipes
+  highbpRecipes,
+  getRecipeDetails
 };

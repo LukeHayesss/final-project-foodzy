@@ -141,7 +141,9 @@ box-sizing:border-box}
     flex-direction:column;
     margin-bottom: 50px;}
     
-.login h1,.register h1{font-size:clamp(1rem, 2vw, 2rem)}
+.login h1,.register h1{
+    font-size:25px;
+}
 
 .login form,.register form{height:180px;
     display:flex;
@@ -163,6 +165,9 @@ box-sizing:border-box}
     border:none;
     margin-bottom:50px;
     cursor: pointer;
+}
+.login button:hover, .register button:hover {
+    background-color: #313131;
 }
     
 .register .register__form{height:300px}

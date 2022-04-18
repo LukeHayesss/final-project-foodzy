@@ -8,7 +8,7 @@ const PORT = 4000;
 const {
   getMySexyRecipes, 
   newUser, 
-  addBookmarkedRecipe
+  addBookmarkedRecipe,
 } = require("./handlers")
 
 const {
@@ -18,7 +18,8 @@ const {
   getSearched, 
   diabeticRecipes, 
   heartRecipes, 
-  highbpRecipes
+  highbpRecipes,
+  getRecipeDetails
 } = require("./handlerz")
 
 
@@ -48,8 +49,10 @@ express()
 .post('/createnewuser', newUser)
 .put('/addbookmarkedrecipe', addBookmarkedRecipe)
 
+// .put('/chat', getMessages)
 
 
+.get('/recipe/:name', getRecipeDetails)
 .get('/getveggie', getVeggie)
 .get('/getpopular', getPopular)
 .get('/cuisine/:name', getCuisine)

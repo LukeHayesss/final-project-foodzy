@@ -14,10 +14,10 @@ import '../styles/App.min.css';
 import { FaAngleDown } from "react-icons/fa";
 import Dropdown from "./Dropdown/Dropdown";
 import './Dropdown/Navbar.css';
-
 import Dropdown2 from "./Dropdown2/Dropdown2";
 import './Dropdown2/Navbar2.css';
 import ScrollToTop from "./ScrollToTop";
+import Foodzy from '../img/Foodzy 2.svg';
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
@@ -66,8 +66,10 @@ const onMouseLeave2 = () => {
           <GlobalStyles />
           <Wrapper>
           <NavMenu>
-          <GiKnifeFork />
-          <Logo to={'/'}>Yummyyy</Logo>
+          {/* <GiKnifeFork /> */}
+          <HomeNavLink exact to='/'>
+          <Logo src={Foodzy}></Logo>
+          </HomeNavLink>
           </NavMenu>
           <Navigation>
           <StyledNavLink exact to="/about">
@@ -125,13 +127,14 @@ const Wrapper = styled.div`
   color: #fff;
 `;
 
-const Logo = styled(Link)`
-text-decoration: none;
-font-size: 4rem;
-font-weight: 400;
-font-family: 'Lobster', cursive;
-color: black;
-`
+const HomeNavLink = styled(NavLink)`
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+const Logo = styled.img`
+  height: 70px;
+`;
 
 const NavMenu = styled.div`
 padding: 2rem 0.9rem;

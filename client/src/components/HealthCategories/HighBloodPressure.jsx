@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import {motion} from 'framer-motion/dist/framer-motion';
+import SpinningCircle from "./SpinningCircle";
 
 
 
@@ -45,7 +45,7 @@ useEffect(() => {
     <>
     {(!isLoaded &&
         <LoadingIconWrapper>
-            <CircularProgress/>
+            <SpinningCircle/>
         </LoadingIconWrapper>)}
         {(isLoaded &&
 

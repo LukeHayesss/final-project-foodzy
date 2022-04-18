@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, useParams} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import {motion} from 'framer-motion/dist/framer-motion';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import SpinningCircle from "../components/SpinningCircle";
 
 
 const Cuisine = () => {
@@ -37,7 +37,7 @@ const Cuisine = () => {
         <>
         {(!isLoaded &&
      <LoadingIconWrapper>
-     <CircularProgress />
+     <SpinningCircle />
        </LoadingIconWrapper>)}
        {(isLoaded && 
        <div>

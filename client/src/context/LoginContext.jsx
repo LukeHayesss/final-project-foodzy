@@ -67,7 +67,7 @@ const LoginContextProvider = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const setUser = user => {
-    console.log(user, 'CURRENT USER')
+    console.log(user, 'CURRENT USER HEY')
     setIsLoggedIn(true);
     //get name of user, and save it
     setName(user.displayName);

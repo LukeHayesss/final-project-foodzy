@@ -14,6 +14,7 @@ app.use(express.static('public'));
 const { db } = require("./firebase.js");
 const {collection, getDocs, setDoc, doc} = require("firebase/firestore");
 const {getAuth} = require('firebase/auth');
+const { ref } = require('firebase-functions/v1/database');
 require("dotenv").config();
 
 //
@@ -53,10 +54,23 @@ const addBookmarkedRecipe = async (req, res) => {
   }
 }
 
+////////////////////
+// const getMessages = async (req, res) => {
+// const {myChats, currentUser} = req.body;
+// try {
+//   console.log(req.body, 'CHAT TEST')
+//   const usersRef = doc(db, "users", currentUser);
+//   setDoc(usersRef, {chat: myChats}, {merge: true});
+//   sendResponse(res, 200, req.body, 'SUCCESS')
+// } catch(err) {
+//   sendResponse(res, 400, err, 'FAILURE')
+// }}
+
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;
     await setDoc(doc(db, 'users', 'userId'))
+    // this.db.collection('users').doc().set(Object.assign({}, user))
 }    
 
 module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe }

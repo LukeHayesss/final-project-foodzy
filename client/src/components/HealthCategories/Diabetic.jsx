@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import {motion} from 'framer-motion/dist/framer-motion';
+import SpinningCircle from "../SpinningCircle";
 
 
 const Diabetic = () => {
@@ -37,7 +37,7 @@ const Diabetic = () => {
         <>
         {(!isLoaded &&
             <LoadingIconWrapper>
-                <CircularProgress/>
+                <SpinningCircle/>
             </LoadingIconWrapper>)}
             {(isLoaded &&
     <div>
@@ -105,7 +105,7 @@ display: flex;
 justify-content: center;
 position: relative;
 top: 100px;
-padding-bottom: 500;
+padding-bottom: 500px;
 `
 
 export default Diabetic;
