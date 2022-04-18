@@ -116,7 +116,7 @@ h3 {
     font-size: 1rem;
 }
 p {
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: none;
     cursor: default;
 }

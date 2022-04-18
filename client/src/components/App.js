@@ -17,7 +17,7 @@ import './Dropdown/Navbar.css';
 
 import Dropdown2 from "./Dropdown2/Dropdown2";
 import './Dropdown2/Navbar2.css';
-// import Error from "../pages/Error";
+import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
@@ -62,6 +62,7 @@ const onMouseLeave2 = () => {
   return (
     <div className="app">
       <BrowserRouter>
+      <ScrollToTop />
           <GlobalStyles />
           <Wrapper>
           <NavMenu>
