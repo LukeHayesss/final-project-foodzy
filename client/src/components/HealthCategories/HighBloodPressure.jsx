@@ -10,8 +10,6 @@ const HighBloodPressure = () => {
    const [highBloodPressure, setHighBloodPressure] = useState([]);
    const [ isLoaded, setIsLoaded ] = useState(false);
 
-
-
 useEffect(() => {
     fetch('/highbp')
     .then((res) => res.json())
@@ -22,36 +20,24 @@ useEffect(() => {
     })
 }, [])
 
-
-
-
-
-
-
-    // useEffect(() => {
-    // getHighBloodPressure();
-    // }, []);
-
-    // const getHighBloodPressure = async () => {
-    //         const data = await fetch(
-    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&type=bread&type=sauce&apiKey=${process.env.REACT_APP_API_KEY}&number=80&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&minPotassium=20`);
-    //          const recipes = await data.json();
-    //          console.log(data);
-    //          setHighBloodPressure(recipes.results);
-    //          setIsLoaded(true);
-    // };
-
     return(
     <>
-    {(!isLoaded &&
+       {(!isLoaded &&
         <LoadingIconWrapper>
             <SpinningCircle/>
-        </LoadingIconWrapper>)}
-        {(isLoaded &&
+           </LoadingIconWrapper>)}
+          {(isLoaded &&
 
     <div>
     <Wrapper>
     <h3>High BP - Friendly Recipes</h3>
+    <DetailsDiv>
+    Eating a diet that is rich in whole grains, fruits, veggies,
+    and low-fat dairt products, and skips on saturated fat and cholesterol
+    can lower your blood pressure by up to 11mgHg if you have high
+    blood pressure. This plan is known as the Dietary Approaches to
+    Stop Hypertension (DASH) diet, and we have some great choices below.
+    </DetailsDiv>
 
     <Grid
         animate={{opacity: 1}}
@@ -82,6 +68,12 @@ margin: 0% 8%;
 margin-bottom: 50px;
 margin-top: 40px;
 `
+const DetailsDiv = styled.div`
+display: flex;
+font-size: 18px;
+font-weight: 500;
+`
+
 const Grid = styled(motion.div)`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -116,5 +108,18 @@ const LoadingIconWrapper = styled.div`
   padding-bottom: 500px;
 `
 
-
 export default HighBloodPressure;
+
+
+    // useEffect(() => {
+    // getHighBloodPressure();
+    // }, []);
+
+    // const getHighBloodPressure = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&type=bread&type=sauce&apiKey=${process.env.REACT_APP_API_KEY}&number=80&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&minPotassium=20`);
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setHighBloodPressure(recipes.results);
+    //          setIsLoaded(true);
+    // };

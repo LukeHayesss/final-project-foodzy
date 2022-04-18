@@ -45,15 +45,21 @@ const Heart = () => {
 
     <Wrapper>
     <h3>Heart-Healthy Recipes</h3>
+    <DetailsDiv>
+  Here are a bunch of fabulous recipes that will get you on the right
+  path to eating well for heart health. These recipes are full of fruits
+  and veggies, whole grains, and clean protein sources. They are full 
+  of flavour, while also being low in unhealthy fats and salt.
+    </DetailsDiv>
 
-    <Grid
+       <Grid
         animate={{opacity: 1}}
         initial={{opacity: 0}}
         exit={{opacity: 0}}
         transition={{duration: 0.5}}
         >
-    {heart?.map((recipe) => {
-    return(
+        {heart?.map((recipe) => {
+         return (
         <Card key={recipe.id}>
              <Link to={'/recipe/' + recipe.id}>
                  <img src={recipe.image} alt={recipe.title}/>
@@ -72,6 +78,12 @@ const Wrapper = styled.div`
 margin: 0% 8%;
 margin-bottom: 50px;
 margin-top: 40px;
+`
+
+const DetailsDiv = styled.div`
+display: flex;
+font-size: 18px;
+font-weight: 500;
 `
 
 const Grid = styled(motion.div)`
