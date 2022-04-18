@@ -20,7 +20,7 @@ const LoginContextProvider = props => {
   const [errorMessage, setErrorMessage] = useState("");
   
 
-  //register user with email, name, psw to firebase and login
+  //create the new user account
   const sendRegistration = e => {
     e.preventDefault();
     //check if same psw was given both times at registration
@@ -32,7 +32,7 @@ const LoginContextProvider = props => {
         })
         .catch(function(error) {
           setErrorMessage(error.message);
-        });
+        }); 
     } else {
       setErrorMessage("passwords don't match");
     }
@@ -72,7 +72,6 @@ const LoginContextProvider = props => {
     //get name of user, and save it
     setName(user.displayName);
     setUserId(user.uid);
-    // getMyBookmarkedRecipes(user.uid);
   };
 
   const sendLogin = e => {

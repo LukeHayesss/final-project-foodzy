@@ -1,11 +1,8 @@
 import React, { useContext, useState } from "react";
 import Pages from "../pages/Pages";
-//import Category from "./Category";//
 import { BrowserRouter } from "react-router-dom";
 import Search from "./Search";
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
-import { GiKnifeFork } from 'react-icons/gi';
 import GlobalStyles from "../pages/GlobalStyles";
 import { NavLink } from "react-router-dom";
 import Footer from '../pages/Footer';
@@ -66,7 +63,6 @@ const onMouseLeave2 = () => {
           <GlobalStyles />
           <Wrapper>
           <NavMenu>
-          {/* <GiKnifeFork /> */}
           <HomeNavLink exact to='/'>
           <Logo src={Foodzy}></Logo>
           </HomeNavLink>
@@ -114,8 +110,6 @@ const onMouseLeave2 = () => {
           </Navigation>
           </Wrapper>
           <Pages />
-
-          {/* <Error to={'*'}/> */}
         <Footer />
       </BrowserRouter>
     </div>
@@ -161,7 +155,7 @@ const StyledNavLink = styled(NavLink)`
 
 const Navigation = styled.ul`
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
 `;
 
 export default App;

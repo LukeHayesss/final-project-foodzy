@@ -20,8 +20,6 @@ require("dotenv").config();
 //
 const auth = getAuth().user;
 const user = auth?.currentUser;
-// const usersRef = collection(db, 'users')
-// const q = query(usersRef, where('uid', '==', 'true'))
 
 const sendResponse = (res, status, data, message = 'no message included.') => {
     return res.status(status).json({status, data, message})
@@ -55,17 +53,6 @@ const addBookmarkedRecipe = async (req, res) => {
 }
 
 ////////////////////
-// const getMessages = async (req, res) => {
-// const {myChats, currentUser} = req.body;
-// try {
-//   console.log(req.body, 'CHAT TEST')
-//   const usersRef = doc(db, "users", currentUser);
-//   setDoc(usersRef, {chat: myChats}, {merge: true});
-//   sendResponse(res, 200, req.body, 'SUCCESS')
-// } catch(err) {
-//   sendResponse(res, 400, err, 'FAILURE')
-// }}
-
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion/dist/framer-motion';
-import SpinningCircle from "./SpinningCircle";
+import SpinningCircle from "../SpinningCircle";
 
 
 

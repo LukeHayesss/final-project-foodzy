@@ -17,7 +17,7 @@ const Recipe = () => {
         window.print();
     };
 
-useEffect(() => {
+    useEffect(() => {
     async function fetchData(name) {
         const response = await fetch(`/recipe/${name}`)
         const data = await response.json()
@@ -44,64 +44,83 @@ useEffect(() => {
 
 
     return (
-
         <>
-
         {(!isLoaded &&
-     <LoadingIconWrapper>
-     <SpinningCircle />
-       </LoadingIconWrapper>)}
-       {(isLoaded && 
-       <div>
+        <LoadingIconWrapper>
+        <SpinningCircle />
+        </LoadingIconWrapper>)}
+        {(isLoaded && 
+        <div>
 
         <DetailWrapper>
-            <div>
-                <h2>{details.title}</h2>
-                <img src={details.image} alt={''}/>
-
+        <div>
+            <TitleDiv>
+          <h2>{details.title}</h2>
+             </TitleDiv>
+          <MoreDetails>
+            <h3>Servings: {details.servings}</h3>
+            <Minutes><h3>Ready in {details.readyInMinutes} minutes.</h3></Minutes>
+             </MoreDetails>
+              <img src={details.image} alt={''}/>
                 <MiniWrap>
-                <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
-                    <Button2 onClick={printPageHandler}>
-                        <BiPrinter size={20}/> Print Recipe
+                  <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
+                   <Button2 onClick={printPageHandler}>
+                    <BiPrinter size={20}/> Print Recipe
                     </Button2>
-                </MiniWrap>
-
-            </div>
-            <Info>
+                      </MiniWrap>
+                </div>
+                <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} 
                 onClick={() => setActiveTab('instructions')}>Instructions
                 </Button>
-             
                 <Button className={activeTab === 'ingredients' ? 'active' : ''} 
                 onClick={() => setActiveTab('ingredients')}>Ingredients
                 </Button>
-                
+                <Button className={activeTab === 'wine' ? 'active' : ''}
+                onClick={() => setActiveTab('wine')}>Wine Pairings 
+                </Button>
                 {activeTab === 'instructions' && (
-            <div>
-                {/* <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3> */}
+                <div>
                 <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
-            </div>
+                </div>
                 )}
                 {activeTab === 'ingredients' && (
                 <ul>
                 {details.extendedIngredients.map((ingredient) => 
                 <li key={ingredient.id}>{ingredient.original}</li>
                 )}
-                </ul>   
+                </ul>
                 )}
-          
-
-            </Info>
-            </DetailWrapper>
+                {activeTab === 'wine' && (
+                <div>
+                <h3 dangerouslySetInnerHTML={{__html: details.winePairing.pairingText}}></h3>
+                </div>
+                )}
+               </Info>
+              </DetailWrapper>
             </div>)}
         </>
-    )
-}
+)}
 
 const MiniWrap = styled.div`
 display: flex;
 width: 200px;
 align-items: center;
+`
+
+const MoreDetails = styled.div`
+display: flex;
+width: 400px;
+align-items: center;
+`
+const TitleDiv = styled.div`
+display: flex;
+justify-content: center;
+`
+
+
+const Minutes = styled.div`
+margin-left: 20px;
 `
 
 const DetailWrapper = styled.div`
@@ -115,8 +134,8 @@ display: flex;
     color: white;
 }
 h2 {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    /* margin-bottom: 0.5rem; */
+    font-size: 2.5rem;
 } 
 li {
     font-size: 1.2rem;
@@ -133,6 +152,9 @@ p {
     text-decoration: none;
     cursor: default;
 }
+img {
+    margin-bottom: 2rem;
+    }
 `
 
 const Button = styled.button`
@@ -140,7 +162,7 @@ padding: 1rem 2rem;
 color: #313131;
 background: white;
 border: 1px solid black;
-margin-right: 2rem;
+margin-right: 1rem;
 font-weight: 600;
 font-size: 14px;
 cursor: pointer;
@@ -165,6 +187,7 @@ cursor: pointer;
 
 const Info = styled.div`
 margin-left: 3.5rem;
+width: 900px;
 `
 
 const LoadingIconWrapper = styled.div`

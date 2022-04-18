@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { LoginContext } from "../context/LoginContext";
 
+
 const Login = () => {
   const {
     errorMessage,
@@ -45,9 +46,5 @@ const Login = () => {
     </div>
   );
 };
-
-
-
-
 
 export default Login;
