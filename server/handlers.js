@@ -17,7 +17,7 @@ const {getAuth} = require('firebase/auth');
 const { ref } = require('firebase-functions/v1/database');
 require("dotenv").config();
 
-//
+//////////////////
 const auth = getAuth().user;
 const user = auth?.currentUser;
 
@@ -27,29 +27,29 @@ const sendResponse = (res, status, data, message = 'no message included.') => {
 
 const getMySexyRecipes = async (req, res) => {
     try {
-        const recipes = collection(db, 'users')
-        const recipesSnapshot = await getDocs(recipes)
+      const recipes = collection(db, 'users')
+       const recipesSnapshot = await getDocs(recipes)
         const arrOfRecipes = recipesSnapshot.docs.map((doc) => doc.data())
         console.log(arrOfRecipes, 'ARGHHHHH')
         //the below are the keys. we access keys thru dot notation//
-        sendResponse(res, 200, arrOfRecipes, 'recipes received')
-    }
-    catch(err){
-        sendResponse(res, 400, err, 'no recipes received')
-    }}
+       sendResponse(res, 200, arrOfRecipes, 'recipes received')
+      } catch(err) {
+    sendResponse(res, 400, err, 'no recipes received')
+  }
+}
 
 
-    ///////////////////////
+///////////////////////
 const addBookmarkedRecipe = async (req, res) => {
   const {myBookmarkedRecipes, currentUser} = req.body;
-  try {
-  console.log(req.body, 'HGVGFG')
-    const usersRef = doc(db, "users", currentUser);
-    setDoc(usersRef, { myrecipes: myBookmarkedRecipes }, { merge: true });
+    try {
+     console.log(req.body, 'ADD BOOKMARKED RECIPE')
+      const usersRef = doc(db, "users", currentUser);
+     setDoc(usersRef, { myrecipes: myBookmarkedRecipes }, { merge: true });
     sendResponse(res, 200, req.body, 'OH WOW')
-  } catch (err) {
-    sendResponse(res, 400, err, 'no recipes')
-  }
+   } catch (err) {
+  sendResponse(res, 400, err, 'no recipes')
+ }
 }
 
 ////////////////////
