@@ -10,12 +10,12 @@
   .dropdown-menu li {
     /* background: #1888ff; */
     cursor: pointer;
-    background: #373737;
+    background: #313131;
   }
   
   .dropdown-menu li:hover {
     /* background: #5cabff; */
-    background: #303030;
+    background: #404040;
 
   }
   
