@@ -30,7 +30,9 @@ const Popular = () => {
        <div>
     <div>
 <Wrapper>
+    <TextWrap>
     <h3>Trending This Week</h3>
+    </TextWrap>
 
     <Splide options={{
         perPage: 4,
@@ -66,12 +68,13 @@ margin: 0% 8%;
 margin-bottom: 80px;
 margin-top: 5rem;
 `
+
 const Card = styled.div`
 min-height: 15rem;
 border-radius: 1rem;
 overflow: hidden;
 position: relative;
-
+box-shadow: 5px 5px 5px #ccc;
 
 img {
 border-radius: 1rem;
@@ -101,6 +104,11 @@ p {
     text-decoration: none;
 }}
 `
+
+const TextWrap = styled.div`
+text-decoration: underline;
+`
+
 
 const Gradient = styled.div`
 z-index: 3;

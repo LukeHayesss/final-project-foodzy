@@ -21,18 +21,6 @@ const Cuisine = () => {
         fetchData(params.type)
     }, [])
 
-//  const getCuisine = async (name) => {
-//      const data = await fetch(
-//      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
-//      const recipes = await data.json();
-//      setCuisine(recipes.results);
-//      setIsLoaded(true);
-//  }
-
-// useEffect(() => {
-// getCuisine(params.type)
-//   }, [params.type]);
-
     return (
         <>
         {(!isLoaded &&
@@ -91,6 +79,9 @@ h4 {
     padding: 1rem;
     color: black;
     font-size: 1.5rem;
+    :hover {
+        text-decoration: underline;
+    }
 }
 `
 
@@ -103,3 +94,15 @@ const LoadingIconWrapper = styled.div`
 `
 
 export default Cuisine;
+
+//  const getCuisine = async (name) => {
+//      const data = await fetch(
+//      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}&number=51`)
+//      const recipes = await data.json();
+//      setCuisine(recipes.results);
+//      setIsLoaded(true);
+//  }
+
+// useEffect(() => {
+// getCuisine(params.type)
+//   }, [params.type]);

@@ -29,7 +29,9 @@ const Veggie = () => {
        <div>
 <div>
 <Wrapper>
+    <TextWrap>
    <h3>50 Exciting New Recipes</h3>
+   </TextWrap>
     <Splide options={{
         perPage: 3,
         arrows: false,
@@ -69,6 +71,7 @@ min-height: 15rem;
 border-radius: 1rem;
 overflow: hidden;
 position: relative;
+box-shadow: 5px 5px 5px #ccc;
 
 img {
 border-radius: 1rem;
@@ -99,6 +102,10 @@ p {
     text-decoration: none;
   }
 }
+`
+
+const TextWrap = styled.div`
+text-decoration: underline;
 `
 
 const Gradient = styled.div`

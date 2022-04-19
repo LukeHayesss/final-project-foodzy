@@ -9,7 +9,7 @@ const Footer = () => {
   return (
 
   <Wrapper style={{
-    background: "#FFC700",
+    background: "#ffc40c",
     paddingBottom: "45px",
     paddingTop: "29px"
 }}>
@@ -44,13 +44,18 @@ const Footer = () => {
         </InfoContainer>
       </div>
       <div>
-        <InfoContainer>
-          <Title>Learn More</Title>
-          <li>Things</li>
-          <li>Contact Us</li>
-          <li>More Things</li>
-          
-        </InfoContainer>
+        <SubscribeContainer>
+          <SubscribeTitle>Subscribe For Updates</SubscribeTitle>
+          <SubscribeForm>
+            <SubscribeInput
+            placeholder="Your Email"
+            ></SubscribeInput>
+            <SubscribeButton>Submit</SubscribeButton>
+          </SubscribeForm>
+          <SubscribeMiniText>
+            By clicking 'submit', you're agreeing to receive our newsletter.
+          </SubscribeMiniText>
+        </SubscribeContainer>
         <FooterPin />
       </div>
     </Wrapper> 
@@ -135,5 +140,62 @@ const IconLink = styled.div`
     cursor: pointer;
   }
 `;
+
+//SUBSCRIBE SECTION//
+const SubscribeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const SubscribeTitle = styled.span`
+  list-style: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 10px;
+`
+
+const SubscribeForm = styled.form`
+  align-items: center;
+  display: flex;
+`
+
+const SubscribeInput = styled.input`
+  height: 40px;
+  width: 150px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 15px;
+  ::placeholder {
+  
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+    color: black;
+  }
+`
+
+const SubscribeButton = styled.button`
+  height: 40px;
+  width: 110px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0.5rem;
+  background: #313131;
+  border: none;
+  margin-left: 10px;
+  color: white;
+`
+
+const SubscribeMiniText = styled.p`
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 16px;
+`
 
 export default Footer;
