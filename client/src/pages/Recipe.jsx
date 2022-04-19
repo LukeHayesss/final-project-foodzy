@@ -38,7 +38,9 @@ return (
         <div>
         <DetailWrapper>
         <div>
+        <TitleStyle>
           <h2>{details.title}</h2>
+          </TitleStyle>
           <MoreDetails>
             <h3>Servings: {details.servings}</h3>
             <Minutes><h3>Ready in {details.readyInMinutes} minutes.</h3></Minutes>
@@ -88,6 +90,9 @@ const MiniWrap = styled.div`
 display: flex;
 width: 200px;
 align-items: center;
+`
+const TitleStyle = styled.div`
+border-bottom: 1px solid #000000;
 `
 
 const MoreDetails = styled.div`

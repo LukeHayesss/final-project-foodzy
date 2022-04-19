@@ -121,6 +121,7 @@ const onMouseLeave2 = () => {
 const Wrapper = styled.div`
   background-color: #ffc40c;
   color: #fff;
+  border-bottom: 1px solid #000000;
 `;
 
 const HomeNavLink = styled(NavLink)`

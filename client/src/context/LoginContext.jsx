@@ -20,7 +20,8 @@ const LoginContextProvider = props => {
   const [errorMessage, setErrorMessage] = useState("");
   
 
-  //create the new user account
+  //create the new user account and authenticate via frontend//
+//backend thru function is talking to db and getting the records//
   const sendRegistration = e => {
     e.preventDefault();
     //check if same psw was given both times at registration
