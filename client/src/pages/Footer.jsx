@@ -77,7 +77,8 @@ const Logo = styled.img`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 1.5rem;
   background-color: #4E545C;
   min-height: calc(45vh - 34px);
 `;
@@ -102,6 +103,8 @@ const CompanyInfoContainer = styled.div`
 const InfoContainer = styled.div`
   list-style: none;
   line-height: 1.5;
+  text-align: center;
+  margin-left: 3.7rem;
   li {
     padding: 2px;
     color: black;
@@ -118,6 +121,7 @@ const Title = styled.div`
   list-style: none;
   font-size: 20px;
   font-weight: 700;
+  text-align: center;
   color: black;
   :hover {
     cursor: default;
