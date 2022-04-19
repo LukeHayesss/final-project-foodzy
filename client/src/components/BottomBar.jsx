@@ -24,11 +24,9 @@ const scrollToTop = () => {
 
     return (
         <Wrapper>
-        
         {showButton && (
             <Button onClick={scrollToTop} className='back-to-top'>
             Back to top</Button>)}
-
             </Wrapper>
         )}
 
@@ -43,12 +41,13 @@ text-align: center;
 padding: 15px;
 line-height: 19px;
 font-size: 13px;
-color: black;
-background-color: #e7cfa6;
+font-weight: 600;
+color: white;
+background-color: #313131;
 cursor: pointer;
 border: none;
 width: 100%;
 &:hover {
-    background-color: #d6bf98;
+    background-color: #404040;
 }
 `

@@ -157,8 +157,7 @@ margin-left: 30px;
 font-weight: 600;
 cursor: pointer;
 &:hover {
-    background-color: white;
-    color: #313131;
+    background-color: #404040;
 }
 `
 

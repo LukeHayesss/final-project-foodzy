@@ -188,6 +188,10 @@ const SubscribeButton = styled.button`
   border: none;
   margin-left: 10px;
   color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #404040;
+  }
 `
 
 const SubscribeMiniText = styled.p`
