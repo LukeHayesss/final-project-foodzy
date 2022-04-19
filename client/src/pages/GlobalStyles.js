@@ -17,6 +17,7 @@ body {
     padding: 0;
     /* margin: 0% 10%; */
     margin: 0% 0%;
+    background-color: #fbf8f2;
 
 
 }

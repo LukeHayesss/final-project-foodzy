@@ -22,18 +22,6 @@ const Searched = () => {
         fetchData(params.search)
     }, [])
 
-    // const getSearched = async (name) => {
-    //     const data = await fetch(
-    //         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
-    //     const recipes = await data.json();
-    //     setSearchedRecipes(recipes.results);
-    //     setIsLoaded(true);
-    // };
-
-    // useEffect(() => {
-    // getSearched(params.search);
-    // }, [params.search]);
-
     return (
         <>
 
@@ -95,6 +83,10 @@ h4 {
     text-align: center;
     padding: 1rem;
     color: black;
+    font-size: 1.5rem;
+    :hover {
+        text-decoration: underline;
+    }
 }
 `
 const LoadingIconWrapper = styled.div`
@@ -106,3 +98,15 @@ const LoadingIconWrapper = styled.div`
 `
 
 export default Searched;
+
+   // const getSearched = async (name) => {
+    //     const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=51`)
+    //     const recipes = await data.json();
+    //     setSearchedRecipes(recipes.results);
+    //     setIsLoaded(true);
+    // };
+
+    // useEffect(() => {
+    // getSearched(params.search);
+    // }, [params.search]);

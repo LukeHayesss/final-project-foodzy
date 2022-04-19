@@ -18,21 +18,6 @@ const Heart = () => {
        })
    }, []);
 
-    // useEffect(() => {
-    // getHeart();
-    // }, []);
-
-    // const getHeart = async () => {
-    //         const data = await fetch(
-    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&maxSodium=50`);
-            
-    //          const recipes = await data.json();
-    //          console.log(data);
-    //          setHeart(recipes.results);
-    //          setIsLoaded(true);
-
-    // };
-
     return(
         <>
 
@@ -46,10 +31,10 @@ const Heart = () => {
     <Wrapper>
     <h3>Heart-Healthy Recipes</h3>
     <DetailsDiv>
-  Here are a bunch of fabulous recipes that will get you on the right
-  path to eating well for heart health. These recipes are full of fruits
-  and veggies, whole grains, and clean protein sources. They are full 
-  of flavour, while also being low in unhealthy fats and salt.
+     Here are a bunch of fabulous recipes that will get you on the right
+     path to eating well for heart health. These recipes are full of fruits
+     and veggies, whole grains, and clean protein sources. They are full 
+     of flavour, while also being low in unhealthy fats and salt.
     </DetailsDiv>
 
        <Grid
@@ -122,3 +107,19 @@ const LoadingIconWrapper = styled.div`
 `
 
 export default Heart;
+
+
+    // useEffect(() => {
+    // getHeart();
+    // }, []);
+
+    // const getHeart = async () => {
+    //         const data = await fetch(
+    //         `https://api.spoonacular.com/recipes/complexSearch?type=maincourse&type=appetizer&type=dessert&type=breakfast&type=snack&type=soup&type=salad&apiKey=${process.env.REACT_APP_API_KEY}&number=50&maxSugar=10&maxCarbs=50&minFiber=5&maxFat=15&maxSodium=50`);
+            
+    //          const recipes = await data.json();
+    //          console.log(data);
+    //          setHeart(recipes.results);
+    //          setIsLoaded(true);
+
+    // };

@@ -15,6 +15,7 @@ import Dropdown2 from "./Dropdown2/Dropdown2";
 import './Dropdown2/Navbar2.css';
 import ScrollToTop from "./ScrollToTop";
 import Foodzy from '../img/Foodzy 2.svg';
+import BottomBar from "./BottomBar";
 
 const App = () => {
   const { isLoggedin, signOut } = useContext(LoginContext);
@@ -110,6 +111,7 @@ const onMouseLeave2 = () => {
           </Navigation>
           </Wrapper>
           <Pages />
+          <BottomBar/>
         <Footer />
       </BrowserRouter>
     </div>
@@ -117,7 +119,7 @@ const onMouseLeave2 = () => {
 }
 
 const Wrapper = styled.div`
-  background-color: #ffc700;
+  background-color: #ffc40c;
   color: #fff;
 `;
 

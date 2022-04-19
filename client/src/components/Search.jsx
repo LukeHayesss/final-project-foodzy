@@ -46,7 +46,7 @@ input {
     color: white;
     padding: 1rem 3rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     outline: none;
     width: 60%;
     /* margin-left: 550px; */
