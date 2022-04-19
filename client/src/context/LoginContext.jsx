@@ -34,7 +34,7 @@ const LoginContextProvider = props => {
           setErrorMessage(error.message);
         }); 
     } else {
-      setErrorMessage("passwords don't match");
+      setErrorMessage("Passwords Don't Match");
     }
   };
 
@@ -67,7 +67,7 @@ const LoginContextProvider = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const setUser = user => {
-    console.log(user, 'CURRENT USER HEY')
+    console.log(user, 'CURRENT USER INFO')
     setIsLoggedIn(true);
     //get name of user, and save it
     setName(user.displayName);

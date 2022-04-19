@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const {
@@ -15,6 +16,8 @@ const Register = () => {
     setRegpassword2
   } = useContext(LoginContext);
 
+  let navigate = useNavigate();
+
   const handleChangeName = e => setRegname(e.target.value);
 
   const handleChangeEmail = e => setRegemail(e.target.value);
@@ -22,6 +25,7 @@ const Register = () => {
   const handleChangePassword = e => setRegpassword(e.target.value);
 
   const handleChangePassword2 = e => setRegpassword2(e.target.value);
+
 
   return (
     <div className="register">
@@ -56,8 +60,9 @@ const Register = () => {
           required
         />
         <p className="error">{errorMessage}</p>
-        <button className="register__button" onClick={sendRegistration}>
-          Save
+        <button className="register__button" 
+        onClick={sendRegistration}>
+          Sign Up
         </button>
       </form>
     </div>

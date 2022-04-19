@@ -47,7 +47,7 @@ return (
                 <MiniWrap>
                   <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
                    <Button2 onClick={printPageHandler}>
-                    <BiPrinter size={20}/> Print Recipe
+                    <BiPrinter size={18}/> Print Recipe
                     </Button2>
                       </MiniWrap>
                 </div>
@@ -130,7 +130,7 @@ p {
     cursor: default;
 }
 img {
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
     }
 `
 
@@ -150,11 +150,12 @@ const Button2 = styled.button`
 background-color: #313131;
 color: white;
 border: 1px solid black;
-font-size: 14px;
+font-size: 12px;
 border-radius: 2px;
 padding: 8px 15px;
 margin-left: 30px;
 font-weight: 600;
+width: 110px;
 cursor: pointer;
 &:hover {
     background-color: #404040;

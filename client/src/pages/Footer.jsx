@@ -136,7 +136,7 @@ const IconLink = styled.div`
   color: black;
   padding-right: 35px;
   &:hover {
-    color: white;
+    color: #404040;
     cursor: pointer;
   }
 `;
@@ -188,6 +188,7 @@ const SubscribeButton = styled.button`
   border: none;
   margin-left: 10px;
   color: white;
+  font-weight: 600;
   cursor: pointer;
   &:hover {
     background-color: #404040;
