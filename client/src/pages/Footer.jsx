@@ -11,7 +11,9 @@ const Footer = () => {
   <Wrapper style={{
     background: "#ffc40c",
     paddingBottom: "45px",
-    paddingTop: "29px"
+    paddingTop: "29px",
+    borderTop: "1px solid #000000"
+
 }}>
       <div>
         <CompanyInfoContainer>
@@ -169,7 +171,7 @@ const SubscribeInput = styled.input`
   width: 150px;
   left: 0px;
   top: 0px;
-  border-radius: 0.5rem;
+  border-radius: 2px;
   border: none;
   padding-left: 15px;
   ::placeholder {

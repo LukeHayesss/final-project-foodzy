@@ -42,12 +42,12 @@ padding: 15px;
 line-height: 19px;
 font-size: 13px;
 font-weight: 600;
-color: white;
-background-color: #313131;
+color: black;
+background-color: #f8efe4;
 cursor: pointer;
 border: none;
 width: 100%;
 &:hover {
-    background-color: #404040;
+    background-color: #e8e0d5;
 }
 `

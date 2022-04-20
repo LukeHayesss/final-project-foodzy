@@ -50,14 +50,26 @@ const addBookmarkedRecipe = async (req, res) => {
    } catch (err) {
   sendResponse(res, 400, err, 'no recipes')
  }
+} 
+
+const addComment = async (req, res) => {
+  const { note, currentUser } = req.body;
+  try {
+    console.log("REQ:", req.body);
+     const usersRef = doc(db, "users", currentUser);
+      setDoc(usersRef, { mycomment: note }, { merge: true });
+     sendResponse(res, 200, req.body, "Commented");
+  } catch (err) {
+  console.log(err, 'ERROR MESSAGE')
+sendResponse(res, 400, err, "No comment");
+  }
 }
 
-////////////////////
 const newUser = async (req, res) => {
   //deconstructing below  
     const {userInfo} = req.body;
     await setDoc(doc(db, 'users', 'userId'))
     // this.db.collection('users').doc().set(Object.assign({}, user))
-}    
+}  
 
-module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe }
+module.exports = { getMySexyRecipes, newUser, addBookmarkedRecipe, addComment }

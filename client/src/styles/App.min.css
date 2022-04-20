@@ -61,6 +61,7 @@ box-sizing:border-box}
     text-decoration:none;
     color:black;
     font-size:1.8rem;
+    padding-bottom: 8px;
 }
 
 .flip_box {
