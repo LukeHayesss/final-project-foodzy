@@ -93,13 +93,15 @@ h4 {
     padding: 1rem;
     color: black;
     font-size: 1.5rem;
+    :hover {
+        text-decoration: underline;
+    }
 }
 p {
     font-size: 1.5rem;
     padding-bottom: 9px;
 }
 `
-
 const LoadingIconWrapper = styled.div`
   display: flex;
   justify-content: center;

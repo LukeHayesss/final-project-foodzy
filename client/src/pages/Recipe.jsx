@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ToggleBookmark from "../components/ToggleBookmark";
 import { BiPrinter } from 'react-icons/bi';
 import SpinningCircle from "../components/SpinningCircle";
+import NoteSection from "../components/NoteSection";
 
 
 const Recipe = () => {
@@ -52,6 +53,7 @@ return (
                     <BiPrinter size={18}/> Print Recipe
                     </Button2>
                       </MiniWrap>
+                      {/* <hr></hr> */}
                 </div>
                 <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} 
@@ -82,6 +84,7 @@ return (
                 )}
                </Info>
               </DetailWrapper>
+              <NoteSection/>
             </div>)}
         </>
 )}
@@ -91,6 +94,8 @@ display: flex;
 width: 200px;
 align-items: center;
 `
+
+
 const TitleStyle = styled.div`
 border-bottom: 1px solid #000000;
 `
@@ -135,7 +140,7 @@ p {
     cursor: default;
 }
 img {
-    margin-bottom: 0.6rem;
+    margin-bottom: 2px;
     }
 `
 

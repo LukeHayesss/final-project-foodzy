@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { Link } from "react-router-dom";
-
+import styled from "styled-components";
 
 const ToggleBookmark = ({ id, title, image }) => {
 
@@ -81,12 +81,15 @@ console.log("toggle", userId)
   } else
     return (
       <Link to="/login" className="loginToBookmark">
-        Login to bookmark recipe
+        <Bookmark>Login to bookmark recipe.</Bookmark>
       </Link>
     );
 };
 
-
+const Bookmark = styled.div`
+font-size: 16px;
+padding-bottom: 15px;
+`
 
 
 

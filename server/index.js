@@ -9,6 +9,7 @@ const {
   getMySexyRecipes, 
   newUser, 
   addBookmarkedRecipe,
+  addComment
 } = require("./handlers")
 
 const {
@@ -19,7 +20,7 @@ const {
   diabeticRecipes, 
   heartRecipes, 
   highbpRecipes,
-  getRecipeDetails
+  getRecipeDetails,
 } = require("./handlerz")
 
 
@@ -48,8 +49,10 @@ express()
 .get('/getmysexyrecipes', getMySexyRecipes)
 .post('/createnewuser', newUser)
 .put('/addbookmarkedrecipe', addBookmarkedRecipe)
+////////////
 
-// .put('/chat', getMessages)
+.put('/comment', addComment)
+
 
 
 .get('/recipe/:name', getRecipeDetails)
