@@ -50,10 +50,9 @@ return (
                 <MiniWrap>
                   <ToggleBookmark id={details.id} title={details.title} image={details.image}/>
                    <Button2 onClick={printPageHandler}>
-                    <BiPrinter size={18}/> Print Recipe
+                    <BiPrinter size={22}/>
                     </Button2>
                       </MiniWrap>
-                      {/* <hr></hr> */}
                 </div>
                 <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} 
@@ -165,6 +164,7 @@ border-radius: 2px;
 padding: 8px 15px;
 margin-left: 30px;
 font-weight: 600;
+margin-bottom: 25px;
 width: 110px;
 cursor: pointer;
 &:hover {
