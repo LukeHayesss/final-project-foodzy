@@ -8,26 +8,24 @@ import { LoginContext } from "../context/LoginContext";
 const NoteSection = () => {
     const {userId} = useContext(LoginContext);
     // const {isLoggedIn} = useContext(LoginContext);
-
     const [note, setNote] = useState("")
-   
+  
     const onSubmit = (e) => {
     e.preventDefault()
-           fetch("/comment", {
-               method: "PUT",
-               headers: {
-                 "Content-Type": "application/json",
-               },
-               body: JSON.stringify({
-                 note,
-                 currentUser: userId,
-               }),
-             })
-             .then(() => {
-               setNote("")
-             })
-       }
+          fetch("/comment", {
+            method: "PUT",
+              headers: {
+                "Content-Type": "application/json"},
+                body: JSON.stringify({
+                note,
+                currentUser: userId,
+              }),
+            })
+            .then(() => {
+            setNote("")
+          })}
 
+//eventually show below only if user is logged in//
 // if (isLoggedIn) {
 return (
   <>
@@ -36,13 +34,13 @@ return (
         <hr></hr>
       </Line>
       <h3>Notes + Reviews</h3>
-         <Form onSubmit={onSubmit}>
-           <input placeholder="Leave A Review or Comment" type="text" 
-           value={note ?? ""} 
-           onChange={(e) => setNote(e.target.value)}/>
-           <SubmitBtn type="submit">Post</SubmitBtn>
-         </Form>
-       </FormContainer>
+          <Form onSubmit={onSubmit}>
+            <input placeholder="Leave A Review or Comment" type="text" 
+            value={note ?? ""} 
+            onChange={(e) => setNote(e.target.value)}/>
+          <SubmitBtn type="submit">Post</SubmitBtn>
+        </Form>
+      </FormContainer>
 
         {/* else 
      return (
@@ -62,7 +60,6 @@ margin-left: 65px;
 font-size: 18px;
 }
 `
-   
 const Form = styled.form`
 display: flex;
 align-items: center;
@@ -71,7 +68,6 @@ margin-bottom: 6rem;
 p {
 cursor: pointer;
 }
-
 input {
 padding: 12px;
 margin: 12px;
