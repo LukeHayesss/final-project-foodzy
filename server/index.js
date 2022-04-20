@@ -43,9 +43,6 @@ express()
   .use(express.urlencoded({ extended: false }))
   .use('/', express.static(__dirname + '/'))
 
-
-
-
 .get('/getmysexyrecipes', getMySexyRecipes)
 .post('/createnewuser', newUser)
 .put('/addbookmarkedrecipe', addBookmarkedRecipe)
@@ -53,9 +50,9 @@ express()
 //put comment into database attached to the correct uid of logged in user//
 .put('/comment', addComment)
 
-//get comment onto page//
+//get comment onto page oooooh//
+//will have to do later//
 // .get()
-
 
 
 .get('/recipe/:name', getRecipeDetails)
