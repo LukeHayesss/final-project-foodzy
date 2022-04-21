@@ -11,9 +11,9 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
 
 <h1>Screenshots</h1>
 <h2>Homepage</h2>
-![foodzy homepage](https://user-images.githubusercontent.com/91355631/164557522-05f35a2a-b51b-48a0-8d5d-172a23e1bd54.png)
+[foodzy homepage](https://user-images.githubusercontent.com/91355631/164557522-05f35a2a-b51b-48a0-8d5d-172a23e1bd54.png)
 <h2>Diets Dropdown</h2>
-![foodzy dropdown 1](https://user-images.githubusercontent.com/91355631/164557547-775233cc-1879-41cf-90d6-392dde8dcb14.png)
+[foodzy dropdown 1](https://user-images.githubusercontent.com/91355631/164557547-775233cc-1879-41cf-90d6-392dde8dcb14.png)
 <h2>Health Conditions Dropdown</h2>
 ![foodzy dropdown 2](https://user-images.githubusercontent.com/91355631/164557555-0a06b899-f5bb-44bc-b8de-787242944058.png)
 <h2>Recipe Page</h2>
