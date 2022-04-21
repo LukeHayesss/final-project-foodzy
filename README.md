@@ -42,9 +42,9 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
 
 ![foodzy error](https://user-images.githubusercontent.com/91355631/164557626-b6cd7e03-ba0a-45f7-9331-382a3423cec6.png)
 
-<h1><b>Dependencies used in the front-end</b></h1>
+<h1><b>Dependencies used in the front-end:</b></h1>
 
-"dependencies": {
+    "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -64,9 +64,9 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.5"
-  }
+  },
   
-  <h1><b>Dependencies used in the backend</b></h1>
+  <h1><b>Dependencies used in the backend:</b></h1>
   
     "dependencies": {
     "express": "^4.17.3",
@@ -79,4 +79,4 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "uuid": "^8.3.2"
-  }
+  },
