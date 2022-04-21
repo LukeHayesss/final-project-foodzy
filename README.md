@@ -1,4 +1,4 @@
-FOODZY is my final project for <b>Concordia Web Dev Bootcamp.</b> I wanted to make an app where you can filter through recipes depending on either diet preference (such as vegan, gluten free, etc), or health conditions (such as diabetes, or heart-health). I implemented a lot of features and functionality, such as-
+FOODZY is my final project for <b>Concordia Web Dev Bootcamp.</b> I wanted to make an app where you can filter through recipes depending on either diet preference (such as vegan, gluten free, etc), or health conditions (such as diabetes, or heart-health). I was inspired to make this because I've been a professional chef for 15 years, and I've also been a Type 1 diabetic since the age of 7! I implemented a lot of features and functionality in this app, such as-
 
 - ability to search the entire database of recipes
 - ability to filter based on diet or health conditions
