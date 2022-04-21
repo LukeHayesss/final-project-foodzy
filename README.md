@@ -9,3 +9,11 @@ FOODZY is my final project for <b>Concordia Web Dev Bootcamp.</b> I wanted to ma
 
 In building this, I used a lot of different elements, including <b>NodeJS, Styled Components, SCSS, Framer Motion, the Spoonacular API, extensive CSS Styling, React, React Icons, Regex for password verification, Firebase,</b> and more.
 
+![foodzy homepage](https://user-images.githubusercontent.com/91355631/164557522-05f35a2a-b51b-48a0-8d5d-172a23e1bd54.png)
+![foodzy dropdown 1](https://user-images.githubusercontent.com/91355631/164557547-775233cc-1879-41cf-90d6-392dde8dcb14.png)
+![foodzy dropdown 2](https://user-images.githubusercontent.com/91355631/164557555-0a06b899-f5bb-44bc-b8de-787242944058.png)
+![Recipe detail (1)](https://user-images.githubusercontent.com/91355631/164557574-63ad30fe-cadf-4ae5-a683-7e8fa94c79b5.png)
+![foodzy login](https://user-images.githubusercontent.com/91355631/164557582-b38775d4-df7b-49b4-abb6-a06cc297e7e1.png)
+![foodzy no fave](https://user-images.githubusercontent.com/91355631/164557599-15dbee6e-5c52-4e94-8248-e89d7892b764.png)
+![foodzy faves](https://user-images.githubusercontent.com/91355631/164557617-fdf45f2e-b27e-4c09-9cc9-a487ba122b18.png)
+![foodzy error](https://user-images.githubusercontent.com/91355631/164557626-b6cd7e03-ba0a-45f7-9331-382a3423cec6.png)
