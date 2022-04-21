@@ -17,17 +17,29 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
 <h2>Diets Dropdown</h2>
 
 ![foodzy dropdown 1](https://user-images.githubusercontent.com/91355631/164557547-775233cc-1879-41cf-90d6-392dde8dcb14.png)
+
 <h2>Health Conditions Dropdown</h2>
+
 ![foodzy dropdown 2](https://user-images.githubusercontent.com/91355631/164557555-0a06b899-f5bb-44bc-b8de-787242944058.png)
+
 <h2>Recipe Page</h2>
+
 ![Recipe detail (1)](https://user-images.githubusercontent.com/91355631/164557574-63ad30fe-cadf-4ae5-a683-7e8fa94c79b5.png)
+
 <h2>Login Page</h2>
+
 ![foodzy login](https://user-images.githubusercontent.com/91355631/164557582-b38775d4-df7b-49b4-abb6-a06cc297e7e1.png)
+
 <h2>Liked Recipes Page Part 1</h2>
+
 ![foodzy no fave](https://user-images.githubusercontent.com/91355631/164557599-15dbee6e-5c52-4e94-8248-e89d7892b764.png)
+
 <h2>Liked Recipes Page Part 2</h2>
+
 ![foodzy faves](https://user-images.githubusercontent.com/91355631/164557617-fdf45f2e-b27e-4c09-9cc9-a487ba122b18.png)
+
 <h2>Error Page</h2>
+
 ![foodzy error](https://user-images.githubusercontent.com/91355631/164557626-b6cd7e03-ba0a-45f7-9331-382a3423cec6.png)
 
 <h1><b>Dependencies used in the front-end</b></h1>
