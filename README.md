@@ -43,6 +43,7 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
 ![foodzy error](https://user-images.githubusercontent.com/91355631/164557626-b6cd7e03-ba0a-45f7-9331-382a3423cec6.png)
 
 <h1><b>Dependencies used in the front-end</b></h1>
+
 "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -66,6 +67,7 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
   }
   
   <h1><b>Dependencies used in the backend</b></h1>
+  
     "dependencies": {
     "express": "^4.17.3",
     "firebase": "^9.6.10",
