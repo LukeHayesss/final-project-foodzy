@@ -63,8 +63,7 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
-    "styled-components": "^5.3.5"
-  },
+    "styled-components": "^5.3.5"},
   
   <h1><b>Dependencies used in the backend:</b></h1>
   
@@ -78,5 +77,4 @@ In building this, I used a lot of different elements, including <b>NodeJS, Style
     "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "uuid": "^8.3.2"
-  },
+    "uuid": "^8.3.2"},
